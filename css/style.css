@@ -29,9 +29,21 @@
 	margin-top: 0;
 }
 
-#splash #buttons {
+.button-container {
 	display: inline-block;
 	width: 100vw;
+}
+
+#explanation p, #explanation h6 {
+	font-size: 2em;
+	font-family: Kozuka Gothic, sans-serif;
+	width: 80vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#explanation h6 {
+	font-size: 1em;
 }
 
 /* Colors: #6666FF and #FFCC33 */
