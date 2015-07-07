@@ -3,6 +3,14 @@
     src: url(kozuka-gothic.otf);
 }
 
+a {
+	text-decoration: none;
+}
+
+a:link, a:visited {
+	color: inherit;
+}
+
 #splash {
 	background: black;
 	padding-top: 5vh;
