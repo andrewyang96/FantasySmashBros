@@ -1,0 +1,24 @@
+#action {
+	width: 100vw;
+}
+
+#left-col {
+	background: blue;
+	width: 20vw;
+	height: 100vh;
+	float: left;
+}
+
+#mid-col {
+	background: gray;
+	width: 40vw;
+	height: 100vh;
+	display: inline-block;
+}
+
+#right-col {
+	background: green;
+	width: 40vw;
+	height: 100vh;
+	float: right;
+}
