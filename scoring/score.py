@@ -17,7 +17,7 @@ TIES = {1:1, 2:1, 3:1, 4:1, 5:2, 7:2, 9:4, 13:4, 17:8, 25:8, 33:16, 49:16}
 PLACES = {newPlace:mean(range(oldPlace, oldPlace+tie)) for oldPlace, tie in TIES.iteritems() for newPlace in range(oldPlace, oldPlace+tie)}
 
 def resultScoreFunc(place):
-    # Power function such that 25th-32nd place is worth 1/6 of 1st place, assuming same percentages.
+    # Power function such that 49th-64th place is worth 1/10 of 1st place, assuming same percentages.
     # place: Player's placement
     # Returns a multiplier between 0 and 1.
     # Top 32: 1st, 2nd, 3rd, 4th, 5th (5.5), 7th (7.5), 9th (10.5), 13th (14.5), 17th (20.5), 25th (28.5)
