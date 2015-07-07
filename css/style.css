@@ -14,6 +14,7 @@
 	width: 40vw;
 	margin-left: auto;
 	margin-right: auto;
+	margin: 2vh auto 8vh auto;
 }
 
 #splash h1, #splash h2 {
@@ -25,14 +26,12 @@
 
 #splash h1 {
 	font-size: 6em;
-	margin-bottom: 0.5em;
 	margin-top: 0;
 }
 
 #splash #buttons {
 	display: inline-block;
 	width: 100vw;
-	margin-top: 1em;
 }
 
 /* Colors: #6666FF and #FFCC33 */
