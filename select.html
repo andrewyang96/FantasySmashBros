@@ -13,28 +13,35 @@
 			<div id="left-col">
 				<!-- Game toggle and countdown goes here before EVO 2015 starts -->
 				<!-- Game toggle and leaderboard goes here after EVO 2015 is finished -->
+				<form id="game-choice-form" onsubmit="return false;">
+					<div class="game-choice">
+						<input type="radio" name="game" id="ssb4" value="ssb4" checked>
+						<label for="ssb4">SM4SH</label>
+					</div>
+					<div class="game-choice">
+						<input type="radio" name="game" id="ssbm" value="ssbm">
+						<label for="ssbm">MELEE</label>
+					</div>
+				</form>
 			</div>
 
 			<div id="mid-col">
 				<!-- Search bar and search results go here -->
 				<!-- You can select/unselect Smashers here -->
-				<form id="search" method="post" onsubmit="return false;"><!-- onsubmit="return false" prevents new page from loading -->
-					<input type="text" name="searchQuery" placeholder="Search">
-					<br>
-					Sort by: 
-					<select name="sortType">
-						<option value="0">Name</option>
-						<option value="1">Handle</option>
-						<option value="2">Popularity</option>
-					</select>
-					<select name="sortOrder">
-						<option value="1">Ascending</option>
-						<option value="-1">Descending</option>
-					</select>
-					<br>
-					<input type="radio" name="game" value="ssb4" checked>SSB4
-					<br>
-					<input type="radio" name="game" value="ssbm">SSBM
+				<form id="search" method="post" onsubmit="return false;">
+					<div class="form-row">
+						<input type="text" name="searchQuery" placeholder="Search">
+						Sort by: 
+						<select name="sortType">
+							<option value="0">Name</option>
+							<option value="1">Handle</option>
+							<option value="2">Popularity</option>
+						</select>
+						<select name="sortOrder">
+							<option value="1">Ascending</option>
+							<option value="-1">Descending</option>
+						</select>
+					</div>
 				</form>
 				<p>Search Query: <span id="searchQueryResult"></span></p>
 				<p>Game: <span id="gameResult"></span></p>
@@ -47,7 +54,7 @@
 			</div>
 		</div>
 
-		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/select.js"></script>
 	</body>
 </html>

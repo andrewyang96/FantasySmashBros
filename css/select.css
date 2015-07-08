@@ -1,24 +1,68 @@
+body {
+	font-family: Kozuka Gothic, sans-serif;
+}
+
 #action {
 	width: 100vw;
 }
 
 #left-col {
 	background: blue;
-	width: 20vw;
+	width: 10vw;
 	height: 100vh;
 	float: left;
 }
 
 #mid-col {
 	background: gray;
-	width: 40vw;
+	width: 45vw;
 	height: 100vh;
 	display: inline-block;
+	box-sizing: border-box; /* Prevent padding from changing size */
+	padding: 1vh 1vw 1vh 1vw;
 }
 
 #right-col {
 	background: green;
-	width: 40vw;
+	width: 45vw;
 	height: 100vh;
 	float: right;
+	box-sizing: border-box;
+	padding: 1vh 1vw 1vh 1vw;
+}
+
+.form-row {
+	display: inline-block;
+}
+
+input[type=text] {
+	padding: 0.5em;
+	border: solid 1px #dcdcdc;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+
+input[type=text]:focus {
+	border: solid 1px #707070;
+	box-shadow: 0 0 5px 1px #969696;
+}
+
+#game-choice-form input[type=radio] + label {
+	/* Game unselected */
+	background: #6666FF;
+}
+
+#game-choice-form input[type=radio]:checked + label {
+	/* Game selected */
+	background: #FFCC33;
+}
+
+#game-choice-form input[type=radio] {
+	display: none;
+}
+
+#game-choice-form label {
+	display: block;
+	font-size: 2em;
+	line-height: 15vh;
+	height: 15vh;
 }
