@@ -9,8 +9,24 @@
 	</head>
 
 	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '1104796399550127',
+					xfbml      : true,
+					version    : 'v2.3'
+				});
+			};
+
+			(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
 		<div id="fb-root"></div>
-		<script src="js/facebook-sdk.js"></script>
 
 		<div id="action">
 			<div id="left-col">
@@ -60,6 +76,7 @@
 
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/firebase.js"></script>
+		<script src="js/login.js"></script>
 		<script src="js/select.js"></script>
 	</body>
 </html>
