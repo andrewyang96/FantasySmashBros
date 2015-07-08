@@ -9,6 +9,9 @@
 	</head>
 
 	<body>
+		<div id="fb-root"></div>
+		<script src="js/facebook-sdk.js"></script>
+
 		<div id="action">
 			<div id="left-col">
 				<!-- Game toggle and countdown goes here before EVO 2015 starts -->
@@ -51,10 +54,12 @@
 			<div id="right-col">
 				<!-- Your picks are listed here -->
 				<!-- Facebook login prompt if no login yet -->
+				<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
 			</div>
 		</div>
 
 		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/firebase.js"></script>
 		<script src="js/select.js"></script>
 	</body>
 </html>

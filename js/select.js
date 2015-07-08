@@ -1,5 +1,7 @@
 DEADLINE = 1437145200000 // 8:00 AM PST Friday June 17, 2015
 
+/* Begin search code */
+
 String.prototype.format = function () {
     var formatted = this;
     for (var i = 0; i < arguments.length; i++) {
@@ -84,3 +86,14 @@ var renderResults = function (IDs, data) {
         $("#jsonResult").append(el.format(playerObj.name, playerObj.handle));
     });
 };
+
+/* Begin select code */
+
+var ref = new Firebase("https://fantasy-smash-bros.firebaseio.com/");
+ref.authWithOAuthPopup("facebook", function (error, authData) {
+	if (error) {
+		console.log("Login failed!", error);
+	} else {
+		console.log("Authenticated successfully with payload:", auth);
+	}
+});
