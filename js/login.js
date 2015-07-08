@@ -16,6 +16,10 @@ function attemptLogin() {
     var user = ref.getAuth();
     if (user) {
         loginWithAuthData(user);
+    } else {
+        $("#fb-login").click(function () {
+            FBLogin();
+        });
     }
 }
 
