@@ -79,10 +79,10 @@ var popSort = function (a, b, data) {
 };
 
 var renderResults = function (IDs, data) {
-    $("#jsonResult").html("");
+    $("#search-results").html("");
     var el = "<li>Name: {0}, Handle: {1}</li>";
     IDs.forEach(function (key) {
         var playerObj = data[key];
-        $("#jsonResult").append(el.format(playerObj.name, playerObj.handle));
+        $("#search-results").append(el.format(playerObj.name, playerObj.handle));
     });
 };

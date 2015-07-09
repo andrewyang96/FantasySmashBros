@@ -1,0 +1,18 @@
+<form id="calculator" method="post" onsubmit="return false;">
+    Percent: <input type="number" name="percent" min="0" max="100" step="0.1" value="0">
+    <br>
+    Place: <input type="number" name="place" min="1" value="1">
+    <br>
+    <input type="submit">
+</form>
+<p>Score: <span id="score"></span></p>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+	$("#calculator").submit(function (event) {
+	    var percent = $("input[name=percent]").val();
+	    var place = $("input[name=place]").val();
+	    var score = calculateScore(percent, place);
+	    $("#score").html(score);
+	});
+</script>
