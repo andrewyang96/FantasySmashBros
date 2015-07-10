@@ -7,14 +7,14 @@ body {
 }
 
 #left-col {
-	background: blue;
+	background: #D3D3D3;
 	width: 10vw;
 	height: 100vh;
 	float: left;
 }
 
 #mid-col {
-	background: gray;
+	background: #808080;
 	width: 45vw;
 	height: 100vh;
 	display: inline-block;
@@ -23,7 +23,7 @@ body {
 }
 
 #right-col {
-	background: green;
+	background: #4040ff;
 	width: 45vw;
 	height: 100vh;
 	float: right;
@@ -47,13 +47,25 @@ input[type=text]:focus {
 }
 
 #game-choice-form input[type=radio] + label {
-	/* Game unselected */
-	background: #6666FF;
+	/* Game unselected and not hovering */
+	background: #D3D3D3;
+	color: #808080;
+}
+
+#game-choice-form input[type=radio] + label:hover {
+	/* Game unselected and hovering */
+	background: white;
 }
 
 #game-choice-form input[type=radio]:checked + label {
-	/* Game selected */
-	background: #FFCC33;
+	/* Game selected and not hovering */
+	background: #ffcc33;
+	color: #6666ff;
+}
+
+#game-choice-form input[type=radio]:checked + label:hover {
+	/* Game selected and hovering */
+	background: #e7af07;
 }
 
 #game-choice-form input[type=radio] {
@@ -82,7 +94,7 @@ input[type=text]:focus {
 }
 
 #search-results li:hover {
-	background: brown;
+	background: #D3D3D3;
 }
 
 .smasher-info {
@@ -123,9 +135,9 @@ input[type=text]:focus {
     border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
-    background: #6666ff;
+    background: #b8b8ff;
 }
 
 .details table tr:hover {
-	background: #b8b8ff;
+	background: #8b8bff;
 }

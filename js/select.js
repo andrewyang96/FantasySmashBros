@@ -97,7 +97,12 @@ var renderSearchResults = function (IDs, data) {
     var context = {players: playerObjs};
     var renderedTemplate = searchResultsTemplate(context);
     $("#search-results-view").html(renderedTemplate);
+    adjustPageHeight();
     attachToggleListeners($("#search-results"));
+};
+
+var adjustPageHeight = function () {
+    console.log("Page height:", $(document).height());
 };
 
 var attachToggleListeners = function (olElement) {
