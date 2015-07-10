@@ -73,7 +73,11 @@ input[type=text]:focus {
 }
 
 #search-results li {
-	
+	margin: 1vh auto 1vh auto;
+	border: 1px solid black;
+	border-radius: 1em;
+	box-sizing: border-box; /* Prevent padding from changing size */
+	padding: 1vh 1vw 1vh 1vw;
 }
 
 #search-results li:hover {
