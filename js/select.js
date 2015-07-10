@@ -97,12 +97,20 @@ var renderSearchResults = function (IDs, data) {
     var context = {players: playerObjs};
     var renderedTemplate = searchResultsTemplate(context);
     $("#search-results-view").html(renderedTemplate);
-    adjustPageHeight();
     attachToggleListeners($("#search-results"));
+    adjustPageHeight();
 };
 
 var adjustPageHeight = function () {
-    console.log("Page height:", $(document).height());
+    // Reset height first
+    $(".col").css({
+        height: ""
+    });
+    var pageHeight = $(document).height();
+    console.log("New height:", pageHeight);
+    $(".col").css({
+        height: pageHeight
+    });
 };
 
 var attachToggleListeners = function (olElement) {
@@ -147,4 +155,5 @@ $(document).ready(function () {
     // NEED TO IMPORT login.js beforehand
     attemptLogin();
     renderSearchResults([]);
+    renderChoices();
 });
