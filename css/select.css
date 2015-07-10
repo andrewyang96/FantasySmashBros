@@ -73,6 +73,7 @@ input[type=text]:focus {
 }
 
 #search-results li {
+	overflow: hidden; /* Prevent inner divs from spilling out below */
 	margin: 1vh auto 1vh auto;
 	border: 1px solid black;
 	border-radius: 1em;
@@ -82,4 +83,33 @@ input[type=text]:focus {
 
 #search-results li:hover {
 	background: brown;
+}
+
+.smasher-info {
+	background: #eff;
+	float: left;
+	width: 40%;
+}
+
+.smasher-popularity {
+	background: #fef;
+	display: inline-block;
+	width: 20%;
+	text-align: center;
+	font-size: 2em;
+}
+
+.smasher-buttons {
+	background: #ffe;
+	float: right;
+	width: 40%;
+	text-align: center;
+	font-size: 1em;
+}
+
+.smasher-buttons > div {
+	/* Style buttons */
+	padding: 0 0.5em 0 0.5em;
+	margin: 0 0.5em 0 0.5em;
+	display: inline-block;
 }
