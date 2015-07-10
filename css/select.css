@@ -86,13 +86,11 @@ input[type=text]:focus {
 }
 
 .smasher-info {
-	background: #eff;
 	float: left;
 	width: 40%;
 }
 
 .smasher-popularity {
-	background: #fef;
 	display: inline-block;
 	width: 20%;
 	text-align: center;
@@ -100,7 +98,6 @@ input[type=text]:focus {
 }
 
 .smasher-buttons {
-	background: #ffe;
 	float: right;
 	width: 40%;
 	text-align: center;

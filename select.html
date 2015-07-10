@@ -45,25 +45,30 @@
 				</form>
 				<p>Search Query: <span id="searchQueryResult"></span></p>
 				<p>Game: <span id="gameResult"></span></p>
-				<!-- TODO replace with Handlebars code -->
-				<ol id="search-results">
-					<!-- Template prototype -->
-					<li>
-						<div class="smasher-info">
-							<div class="smasher-name">JASON YOON</div>
-							<div class="smasher-handle">BIZZARRO FLAME</div>
-						</div>
+				
+				<div id="search-results-view">
+				<script id="search-results-template" type="type/x-handlebars-template">
+					<ol id="search-results">
+						{{#each players}}
+						<li>
+							<div class="smasher-info">
+								<div class="smasher-name">{{name}}</div>
+								<div class="smasher-handle">{{handle}}</div>
+							</div>
 
-						<div class="smasher-popularity">
-							69.69%
-						</div>
+							<div class="smasher-popularity">
+								69.69% <!-- TODO replace -->
+							</div>
 
-						<div class="smasher-buttons">
-							<div class="btn-style-1">CHOOSE</div>
-							<div class="btn-style-2 toggle-button">&#9660;</div>
-						</div>
-					</li>
-				</ol>
+							<div class="smasher-buttons">
+								<div class="btn-style-1">CHOOSE</div>
+								<div class="btn-style-2 toggle-button">&#9660;</div>
+							</div>
+						</li>
+						{{/each}}
+					</ol>
+				</script>
+				</div>
 			</div>
 
 			<div id="right-col">
@@ -74,7 +79,7 @@
 		</div>
 
 		<script src="js/jquery-1.11.3.min.js"></script>
-		<script src="js/handlebars-v3.0.3"></script>
+		<script src="js/handlebars-v3.0.3.js"></script>
 		<script src="js/firebase.js"></script>
 		<script src="js/login.js"></script>
 		<script src="js/select.js"></script>

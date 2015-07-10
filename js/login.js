@@ -24,7 +24,3 @@ function attemptLogin() {
         loginWithAuthData(user);
     }
 }
-
-$(document).ready(function () {
-    attemptLogin();
-});

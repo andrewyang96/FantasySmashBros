@@ -46,7 +46,7 @@ var searchPlayers = function (searchQuery, game, sortType, sortOrder) {
             return sortFuncs[sortType](a, b, data) * sortOrder;
         });
         // Render
-        renderResults(filteredIDs, data);
+        renderSearchResults(filteredIDs, data);
     });
 };
 
@@ -78,11 +78,33 @@ var popSort = function (a, b, data) {
     return nameSort(a, b); // TODO
 };
 
-var renderResults = function (IDs, data) {
-    $("#search-results").html("");
-    var el = "<li>Name: {0}, Handle: {1}</li>";
+/* Begin Handlebars template code */
+
+var searchResultsTemplateSrc = $("#search-results-template").html();
+var searchResultsTemplate = Handlebars.compile(searchResultsTemplateSrc);
+
+var renderSearchResults = function (IDs, data) {
+    var playerObjs = [];
     IDs.forEach(function (key) {
         var playerObj = data[key];
-        $("#search-results").append(el.format(playerObj.name, playerObj.handle));
+        if (!playerObj.handle) {
+            // Assign empty player handle to empty string
+            playerObj.handle = "";
+        }
+        // TODO add popularity
+        playerObjs.push(playerObj);
     });
+    var context = {players: playerObjs};
+    var renderedTemplate = searchResultsTemplate(context);
+    $("#search-results-view").html(renderedTemplate);
 };
+
+var renderChoices = function (ID) {
+    // TODO
+}
+
+$(document).ready(function () {
+    // NEED TO IMPORT login.js beforehand
+    attemptLogin();
+    renderSearchResults([]);
+});
