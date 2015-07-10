@@ -91,7 +91,7 @@ var renderSearchResults = function (IDs, data) {
             // Assign empty player handle to empty string
             playerObj.handle = "";
         }
-        // TODO add popularity
+        // TODO add popularity and point calculations
         playerObjs.push(playerObj);
     });
     var context = {players: playerObjs};

@@ -110,3 +110,17 @@ input[type=text]:focus {
 	margin: 0 0.5em 0 0.5em;
 	display: inline-block;
 }
+
+.details {
+	margin-top: 1em;
+}
+
+.details table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.details table tr:hover {
+	background: #eef;
+}
