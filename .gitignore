@@ -56,6 +56,5 @@ docs/_build/
 # PyBuilder
 target/
 
-scoring/scoreMatrix.csv
 scoring/scoreMatrix.xlsx
 Thumbs.db

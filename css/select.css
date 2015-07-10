@@ -69,4 +69,13 @@ input[type=text]:focus {
 
 #search-results {
 	list-style-type: none;
+	padding: 0;
+}
+
+#search-results li {
+	
+}
+
+#search-results li:hover {
+	background: brown;
 }
