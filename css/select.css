@@ -111,16 +111,21 @@ input[type=text]:focus {
 	display: inline-block;
 }
 
+.preview {
+	margin-bottom: 1vh;
+}
+
 .details {
-	margin-top: 1em;
+	margin-top: 1vh;
 }
 
 .details table {
     border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
+    background: #6666ff;
 }
 
 .details table tr:hover {
-	background: #eef;
+	background: #b8b8ff;
 }
