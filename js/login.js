@@ -28,15 +28,35 @@ function attemptLogin() {
 /* Begin Firebase DOM functions */
 
 function setupChoicesLoader(ID) {
-    ref.child(ID).on("value", function (snapshot) {
+    var game = $("input[type=radio][name=game]:checked").val();
+    ref.child(game).child(ID).on("value", function (snapshot) {
         console.log("newChoices:");
         console.log(newChoices);
         var newChoices = snapshot.val();
         // Re-render template
-        renderChoices(newChoices, data);
+        getPlayerData(game, function (data) {
+            renderChoices(newChoices, data);
+        });
     });
 }
 
+var yourChoicesTemplateSrc = $("#search-results-template").html();
+var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
+
 var renderChoices = function (IDs, data) {
-    // TODO
+    var playerObjs = [];
+    IDs.forEach(function (key) {
+        var playerObj = data[key];
+        if (!playerObj.handle) {
+            // Assign empty player handle to empty string
+            playerObj.handle = "";
+        }
+        // TODO add popularity and point calculations
+        playerObjs.push(playerObj);
+    });
+    var context = {players: playerObjs};
+    var renderedTemplate = yourChoicesTemplate(context);
+    $("#your-choices-view").html(renderedTemplate);
+    attachToggleListeners($("#your-choices"));
+    adjustPageHeight();
 };

@@ -24,9 +24,13 @@ $("input[name=searchQuery]").keydown(function (event) {
     }
 });
 
-var searchPlayers = function (searchQuery, game, sortType, sortOrder) {
+var getPlayerData = function (game, callback) {
     var url = BASEURL.format(game);
-    $.getJSON(url, function (data) {
+    $.getJSON(url, callback);
+}
+
+var searchPlayers = function (searchQuery, game, sortType, sortOrder) {
+    getPlayerData(game, function (data) {
         var playerIDs = Object.keys(data);
         // Filter players
         var filteredIDs = playerIDs.filter(function (value) {

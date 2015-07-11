@@ -127,6 +127,82 @@
 				<!-- Your picks are listed here -->
 				<!-- Facebook login prompt if no login yet -->
 				<button id="fb-login" onclick="FBLogin()">Login with Facebook</button>
+				
+				<div id="your-choices-view">
+				<script id="your-choices-template" type="type/x-handlebars-template">
+					<ol id="your-choices">
+						{{#each players}}
+						<li>
+							<div class="preview">
+								<div class="smasher-info">
+									<div class="smasher-name">{{name}}</div>
+									<div class="smasher-handle">{{handle}}</div>
+								</div>
+
+								<div class="smasher-popularity">
+									69.69% <!-- TODO replace -->
+								</div>
+
+								<div class="smasher-buttons">
+									<div class="btn-style-1">CHOOSE</div>
+									<div class="btn-style-2 toggle-button">&#9660;</div>
+								</div>
+							</div>
+
+							<div class="details">
+								<!-- TODO replace with actual point calculations -->
+								<table border="1" style="width:100%">
+									<tr>
+										<td>Place</td>
+										<td>Points</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>91.5</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>61.6</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>48.9</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>34.6</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>34.6</td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td>29</td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>23.9</td>
+									</tr>
+									<tr>
+										<td>13</td>
+										<td>19.9</td>
+									</tr>
+									<tr>
+										<td>17</td>
+										<td>16.3</td>
+									</tr>
+									<tr>
+										<td>25</td>
+										<td>13.5</td>
+									</tr>
+								</table>
+							</div>
+						</li>
+						{{/each}}
+					</ol>
+				</script>
+				</div>
 			</div>
 		</div>
 
