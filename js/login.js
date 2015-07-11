@@ -11,11 +11,11 @@ function FBLogin() {
 }
 
 function loginWithAuthData(authData) {
-    username = authData.facebook.displayName;
-    avatarURL = authData.facebook.cachedUserProfile.picture.data.url;
-    userID = authData.facebook.id;
+    var username = authData.facebook.displayName;
+    var userID = authData.facebook.id;
     $("#fb-login").remove();
-    console.log(authData);
+    // Init Firebase stuff
+    setupChoicesLoader(userID);
 }
 
 function attemptLogin() {
@@ -24,3 +24,19 @@ function attemptLogin() {
         loginWithAuthData(user);
     }
 }
+
+/* Begin Firebase DOM functions */
+
+function setupChoicesLoader(ID) {
+    ref.child(ID).on("value", function (snapshot) {
+        console.log("newChoices:");
+        console.log(newChoices);
+        var newChoices = snapshot.val();
+        // Re-render template
+        renderChoices(newChoices, data);
+    });
+}
+
+var renderChoices = function (IDs, data) {
+    // TODO
+};
