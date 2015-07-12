@@ -65,6 +65,7 @@ function setupChoicesLoader(ID) {
 
 $("#game-choice-form").change(function () {
     var game = $("input[type=radio][name=game]:checked").val();
+    var ID = getUserID();
     ref.child(game).child("choices").child(ID).once("value", function (snapshot) {
         var newChoices = snapshot.val();
         getPlayerData(game, function (data) {
