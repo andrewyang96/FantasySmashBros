@@ -77,6 +77,8 @@ $("#game-choice-form").change(function () {
             renderChoices(newChoices, data);
         });
     });
+    // Also clear search results
+    renderSearchResults([]);
 });
 
 /* Begin your-choices templating code.
