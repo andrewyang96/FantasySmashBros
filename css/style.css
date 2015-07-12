@@ -30,7 +30,7 @@ a:link, a:visited {
 	-moz-border-radius: 28;
 	border-radius: 1em;
 	color: #ffffff;
-	font-size: 2em;
+	font-size: 1.75vw;
 	padding: 0.25em 1em 0.5em 1em;
 }
 
@@ -55,7 +55,7 @@ a:link, a:visited {
 	-moz-border-radius: 28;
 	border-radius: 1em;
 	color: #ffffff;
-	font-size: 2em;
+	font-size: 1.75vw;
 	padding: 0.25em 1em 0.5em 1em;
 	text-decoration: none;
 }

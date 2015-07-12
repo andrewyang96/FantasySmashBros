@@ -15,12 +15,12 @@
 #splash h1, #splash h2 {
 	text-align: center;
 	font-family: Kozuka Gothic, sans-serif;
-	font-size: 4em;
+	font-size: 3vw;
 	color: white;
 }
 
 #splash h1 {
-	font-size: 6em;
+	font-size: 6vw;
 	margin-top: 0;
 }
 
@@ -30,7 +30,7 @@
 }
 
 #explanation p, #explanation h6 {
-	font-size: 2em;
+	font-size: 2vw;
 	font-family: Kozuka Gothic, sans-serif;
 	width: 80vw;
 	margin-left: auto;
@@ -38,5 +38,5 @@
 }
 
 #explanation h6 {
-	font-size: 1em;
+	font-size: 1vw;
 }
