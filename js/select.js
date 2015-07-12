@@ -4,11 +4,13 @@ var addPlayer = function (playerID, userID, game) {
     if (userID) {
         // Validate selection
         ref.child(game).child("choices").child(userID).once("value", function (snapshot) {
-            var choices = Object.keys(snapshot.val());
+            var choices = snapshot.val();
             if (canAddPlayer(choices, playerID)) {
                 ref.child(game).child("choices").child(userID).child(playerID).set("true", function () {
                     console.log("Added player " + playerID);
                 });
+            } else {
+                console.log("Cannot add " + playerID);
             }
         });
     } else {
@@ -21,6 +23,7 @@ var canAddPlayer = function (choices, newChoice) {
     if (!choices) {
         return true;
     } else {
+        var choices = Object.key(choices);
         return choices.length < 6 && choices.indexOf(newChoice) == -1
     }
 };
