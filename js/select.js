@@ -7,7 +7,9 @@ var addPlayer = function (playerID, userID, game) {
             var choices = snapshot.val();
             if (canAddPlayer(choices, playerID)) {
                 ref.child(game).child("choices").child(userID).child(playerID).set("true", function () {
-                    console.log("Added player " + playerID);
+                    ref.child(game).child("freqs").child(playerID).child(userID).set("true", function () {
+                        console.log("Added player " + playerID);
+                    });
                 });
             } else {
                 console.log("Cannot add " + playerID);
@@ -19,10 +21,13 @@ var addPlayer = function (playerID, userID, game) {
 };
 
 var removePlayer = function (playerID, userID, game) {
+    // ALSO WHERE THE REAL MAGIC IS!
     console.log("Removing " + playerID);
     if (playerID && userID && game) {
         ref.child(game).child("choices").child(userID).child(playerID).remove(function () {
-            console.log("Successfully removed player " + playerID);
+            ref.child(game).child("freqs").child(playerID).child(userID).remove(function () {
+                console.log("Successfully removed player " + playerID);
+            });
         });
     } else {
         console.log("You must specify a player, or you must be logged in, or you must specify a game.");
