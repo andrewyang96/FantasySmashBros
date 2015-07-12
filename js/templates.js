@@ -49,7 +49,7 @@ var renderSearchResults = function (IDs, data) {
             var context = {players: playerObjs};
             var renderedTemplate = searchResultsTemplate(context);
             $("#search-results-view").html(renderedTemplate);
-            attachToggleListeners($("#search-results"), false);
+            attachToggleListeners($("#search-results"), true);
             adjustPageHeight();
         });
     });
