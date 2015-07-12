@@ -116,6 +116,7 @@ var renderChoices = function (IDs, data) {
                     } else {
                         playerObj.popularity = 0;
                     }
+                    playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
                     playerObjs.push(playerObj);
                     done();
                 });

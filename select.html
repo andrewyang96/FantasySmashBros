@@ -58,7 +58,7 @@
 								</div>
 
 								<div class="smasher-popularity">
-									69.69% <!-- TODO replace -->
+									{{popularity}}%
 								</div>
 
 								<div class="smasher-buttons">
@@ -68,52 +68,17 @@
 							</div>
 
 							<div class="details">
-								<!-- TODO replace with actual point calculations -->
 								<table border="1" style="width:100%">
 									<tr>
 										<td>Place</td>
 										<td>Points</td>
 									</tr>
+									{{#each scoreSpread}}
 									<tr>
-										<td>1</td>
-										<td>91.5</td>
+										<td>{{place}}</td>
+										<td>{{score}}</td>
 									</tr>
-									<tr>
-										<td>2</td>
-										<td>61.6</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>48.9</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>34.6</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td>34.6</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td>29</td>
-									</tr>
-									<tr>
-										<td>9</td>
-										<td>23.9</td>
-									</tr>
-									<tr>
-										<td>13</td>
-										<td>19.9</td>
-									</tr>
-									<tr>
-										<td>17</td>
-										<td>16.3</td>
-									</tr>
-									<tr>
-										<td>25</td>
-										<td>13.5</td>
-									</tr>
+									{{/each}}
 								</table>
 							</div>
 						</li>
@@ -140,7 +105,7 @@
 								</div>
 
 								<div class="smasher-popularity">
-									69.69% <!-- TODO replace -->
+									{{popularity}}%
 								</div>
 
 								<div class="smasher-buttons">
@@ -156,46 +121,12 @@
 										<td>Place</td>
 										<td>Points</td>
 									</tr>
+									{{#each scoreSpread}}
 									<tr>
-										<td>1</td>
-										<td>91.5</td>
+										<td>{{place}}</td>
+										<td>{{score}}</td>
 									</tr>
-									<tr>
-										<td>2</td>
-										<td>61.6</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>48.9</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>34.6</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td>34.6</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td>29</td>
-									</tr>
-									<tr>
-										<td>9</td>
-										<td>23.9</td>
-									</tr>
-									<tr>
-										<td>13</td>
-										<td>19.9</td>
-									</tr>
-									<tr>
-										<td>17</td>
-										<td>16.3</td>
-									</tr>
-									<tr>
-										<td>25</td>
-										<td>13.5</td>
-									</tr>
+									{{/each}}
 								</table>
 							</div>
 						</li>

@@ -44,3 +44,13 @@ var calculateScore = function (percent, place) {
     score = Math.round(score * 100) / 100;
     return score;
 };
+
+var calculateScoreSpread = function (percent) {
+    var ret = []
+    var places = [1,2,3,4,5,7,9,13,17,25,33,49];
+    places.forEach(function (place) {
+        var score = calculateScore(percent, place);
+        ret.push({place: place, score: score});
+    });
+    return ret;
+};

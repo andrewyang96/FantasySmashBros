@@ -41,6 +41,7 @@ var renderSearchResults = function (IDs, data) {
                 } else {
                     playerObj.popularity = 0;
                 }
+                playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
                 playerObjs.push(playerObj);
                 done();
             });
@@ -60,7 +61,6 @@ var adjustPageHeight = function () {
         height: ""
     });
     var pageHeight = $(document).height();
-    console.log("New height:", pageHeight);
     $(".col").css({
         height: pageHeight
     });
