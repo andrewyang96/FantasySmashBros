@@ -23,14 +23,14 @@ var canAddPlayer = function (choices, newChoice) {
     if (!choices) {
         return true;
     } else {
-        var choices = Object.key(choices);
+        var choices = Object.keys(choices);
         return choices.length < 6 && choices.indexOf(newChoice) == -1
     }
 };
 
 function setupChoicesLoader(ID) {
     var game = $("input[type=radio][name=game]:checked").val();
-    ref.child(game).child(ID).on("value", function (snapshot) {
+    ref.child(game).child("choices").child(ID).on("value", function (snapshot) {
         console.log("newChoices:");
         console.log(newChoices);
         var newChoices = snapshot.val();
