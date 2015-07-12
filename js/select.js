@@ -3,7 +3,7 @@ var addPlayer = function (playerID, userID, game) {
     console.log("Choosing " + playerID);
     if (userID) {
         // Validate selection
-        ref.child(game).child("choices").child(userID).once("value", function (data) {
+        ref.child(game).child("choices").child(userID).once("value", function (snapshot) {
             var choices = Object.keys(snapshot.val());
             if (canAddPlayer(choices, playerID)) {
                 ref.child(game).child("choices").child(userID).child(playerID).set("true", function () {

@@ -68,7 +68,7 @@ var attachToggleListeners = function (olElement) {
         chooseBtn.on("click", function () {
             var game = $("input[type=radio][name=game]:checked").val();
             var userID = getUserID();
-            addPlayer($(this).attr("id", game), userID, game);
+            addPlayer($(this).attr("id"), userID, game);
         });
     });
 }
