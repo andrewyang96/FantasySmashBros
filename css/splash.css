@@ -4,14 +4,28 @@
 	background-color: black;
 	padding-top: 5vh;
 	width: 100vw;
-	height: 100vh;
+	height: 110vh;
 }
+/*
+div::after {
+	content: "";
+	background: url("../img/bigcrowd.jpg") no-repeat center center fixed;
+	background-color: black;
+	background-size: 100%;
+	opacity: 0.2;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}*/
 
 #splash #message {
 	width: 40vw;
 	margin-left: auto;
 	margin-right: auto;
-	margin: 2vh auto 8vh auto;
+	margin: 0 auto 8vh auto;
 }
 
 #splash h1, #splash h2 {
