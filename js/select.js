@@ -41,7 +41,7 @@ function setupChoicesLoader(ID) {
     });
 }
 
-var yourChoicesTemplateSrc = $("#search-results-template").html();
+var yourChoicesTemplateSrc = $("#your-choices-template").html();
 var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
 
 var renderChoices = function (IDs, data) {
