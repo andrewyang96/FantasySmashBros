@@ -1,5 +1,4 @@
 var ref = new Firebase("https://fantasy-smash-bros.firebaseio.com/");
-var DEADLINE = 1437145200000 // 8:00 AM PST Friday June 17, 2015
 
 function FBLogin() {
     ref.authWithOAuthPopup("facebook", function(error, authData) {

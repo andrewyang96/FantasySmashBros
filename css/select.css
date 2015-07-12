@@ -43,6 +43,10 @@ input[type=text]:focus {
 	box-shadow: 0 0 5px 1px #969696;
 }
 
+#days, #hours, #minutes, #seconds {
+	font-size: 3em;
+}
+
 #game-choice-form input[type=radio] + label {
 	/* Game unselected and not hovering */
 	background: #D3D3D3;

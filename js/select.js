@@ -75,10 +75,10 @@ $("#game-choice-form").change(function () {
         var newChoices = snapshot.val();
         getPlayerData(game, function (data) {
             renderChoices(newChoices, data);
+            // Also clear search results
+            renderSearchResults([]);
         });
     });
-    // Also clear search results
-    renderSearchResults([]);
 });
 
 /* Begin your-choices templating code.
@@ -138,10 +138,40 @@ var renderChoices = function (IDs, data) {
     }
 };
 
+/* Countdown function */
+
+var DEADLINE = 1437145200000 // 8:00 AM PST Friday June 17, 2015
+
+var getTimeDiff = function (deadline) {
+    var now = new Date().getTime();
+    var diff = deadline - now;
+    if (diff > 0) {
+        diff = Math.ceil(diff / 1000);
+        var days = Math.floor(diff / 86400);
+        diff %= 86400;
+        var hours = Math.floor(diff / 3600);
+        diff %= 3600;
+        var minutes = Math.floor(diff / 60);
+        diff %= 60;
+        return {days: days, hours: hours, minutes: minutes, seconds: diff};
+    } else {
+        return {days: 0, hours: 0, minutes: 0, seconds: 0};
+    }
+};
+
+var updateCountdown = function () {
+    var timeRemaining = getTimeDiff(DEADLINE);
+    $("#countdown #days").html(timeRemaining.days);
+    $("#countdown #hours").html(timeRemaining.hours);
+    $("#countdown #minutes").html(timeRemaining.minutes);
+    $("#countdown #seconds").html(timeRemaining.seconds);
+}
+
 /* Main function */
 
 $(document).ready(function () {
     // NEED TO IMPORT scoring.js, login.js, search.js, and templates.js beforehand
     attemptLogin();
     renderSearchResults([]);
+    setInterval(updateCountdown, 500);
 });
