@@ -27,7 +27,7 @@ $("input[name=searchQuery]").keydown(function (event) {
 var getPlayerData = function (game, callback) {
     var url = BASEURL.format(game);
     $.getJSON(url, callback);
-}
+};
 
 var searchPlayers = function (searchQuery, game, sortType, sortOrder) {
     getPlayerData(game, function (data) {

@@ -9,6 +9,7 @@ var renderSearchResults = function (IDs, data) {
             // Assign empty player handle to empty string
             playerObj.handle = "";
         }
+        playerObj.id = key;
         // TODO add popularity and point calculations
         playerObjs.push(playerObj);
     });
@@ -61,6 +62,13 @@ var attachToggleListeners = function (olElement) {
                     height: playerEl.data("fullHeight")
                 }, 200);
             }
+        });
+        // Attach click listener to CHOOSE button
+        var chooseBtn = $(this).find(".choose-button");
+        chooseBtn.on("click", function () {
+            var game = $("input[type=radio][name=game]:checked").val();
+            var userID = getUserID();
+            addPlayer($(this).attr("id", game), userID, game);
         });
     });
 }
