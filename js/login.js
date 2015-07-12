@@ -15,8 +15,13 @@ function loginWithAuthData(authData) {
     var username = authData.facebook.displayName;
     var userID = authData.facebook.id;
     $("#fb-login").remove();
-    // Init Firebase stuff
-    setupChoicesLoader(userID);
+    // Add self to participants list
+    ref.child("ssb4").child("participants").child(userID).set("true", function () {
+        ref.child("ssbm").child("participants").child(userID).set("true", function () {
+            // Init Firebase stuff
+            setupChoicesLoader(userID);
+        });
+    });
 }
 
 function attemptLogin() {
