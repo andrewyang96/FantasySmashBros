@@ -92,39 +92,39 @@ var renderChoices = function (IDs, data) {
     if (IDs) {
         var playerObjs = [];
         IDs = Object.keys(IDs);
-        IDs.forEachDone(function (key) {
-            var playerObj = data[key];
-            if (!playerObj.handle) {
-                // Assign empty player handle to empty string
-                playerObj.handle = "";
+        ref.child(game).child("participants").once("value", function (snapshot) {
+            // First get participants
+            var participants = snapshot.val();
+            var numParticipants = Infinity;
+            if (participants) {
+                numParticipants = Object.keys(participants).length;
             }
-            playerObj.id = key;
-            // Calculate popularity
-            ref.child(game).child("participants").once("value", function (snapshot) {
-                var participants = snapshot.val();
-                if (participants) {
-                    var numParticipants = Object.keys(participants).length;
-                    ref.child(game).child("freqs").child(key).once("value", function (snap) {
-                        var players = snap.val();
-                        if (players) {
-                            var numPlayers = Object.keys(players).length;
-                            playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
-                        } else {
-                            playerObj.popularity = 0;
-                        }
-                        playerObjs.push(playerObj);
-                    });
-                } else {
-                    playerObj.popularity = 0;
-                    playerObjs.push(playerObj);
+            // Then iterate through Smasher IDs
+            IDs.forEachDone(function (key) {
+                var playerObj = data[key];
+                if (!playerObj.handle) {
+                    // Assign empty player handle to empty string
+                    playerObj.handle = "";
                 }
+                playerObj.id = key;
+                // Calculate popularity
+                ref.child(game).child("freqs").child(key).once("value", function (snap) {
+                    var players = snap.val();
+                    if (players) {
+                        var numPlayers = Object.keys(players).length;
+                        playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
+                    } else {
+                        playerObj.popularity = 0;
+                    }
+                    playerObjs.push(playerObj);
+                });
+            }, this, function () {
+                var context = {players: []};
+                var renderedTemplate = yourChoicesTemplate(context);
+                $("#your-choices-view").html(renderedTemplate);
+                attachToggleListeners($("#your-choices"), false);
+                adjustPageHeight();
             });
-        }, this, function () {
-            var context = {players: []};
-            var renderedTemplate = yourChoicesTemplate(context);
-            $("#your-choices-view").html(renderedTemplate);
-            attachToggleListeners($("#your-choices"), false);
-            adjustPageHeight();
         });
     } else {
         // Clear choices
