@@ -16,7 +16,7 @@ var renderSearchResults = function (IDs, data) {
     var context = {players: playerObjs};
     var renderedTemplate = searchResultsTemplate(context);
     $("#search-results-view").html(renderedTemplate);
-    attachToggleListeners($("#search-results"));
+    attachToggleListeners($("#search-results"), true);
     adjustPageHeight();
 };
 
@@ -33,6 +33,7 @@ var adjustPageHeight = function () {
 };
 
 var attachToggleListeners = function (olElement, isChooseBtn) {
+    if (typeof isChooseBtn != "boolean") throw "isChooseBtn must be defined as boolean";
     olElement.find("li").each(function () {
         // Store heights beforehand
         $(this).data("fullHeight", $(this).outerHeight());

@@ -71,7 +71,7 @@ var renderChoices = function (IDs, data) {
         var context = {players: playerObjs};
         var renderedTemplate = yourChoicesTemplate(context);
         $("#your-choices-view").html(renderedTemplate);
-        attachToggleListeners($("#your-choices"));
+        attachToggleListeners($("#your-choices"), false);
         adjustPageHeight();
     }
 };
