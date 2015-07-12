@@ -100,7 +100,7 @@ var renderChoices = function (IDs, data) {
                 numParticipants = Object.keys(participants).length;
             }
             // Then iterate through Smasher IDs
-            IDs.forEachDone(function (key) {
+            IDs.forEachDone(function (key, i, arr, done) {
                 var playerObj = data[key];
                 if (!playerObj.handle) {
                     // Assign empty player handle to empty string
@@ -117,9 +117,10 @@ var renderChoices = function (IDs, data) {
                         playerObj.popularity = 0;
                     }
                     playerObjs.push(playerObj);
+                    done();
                 });
             }, this, function () {
-                var context = {players: []};
+                var context = {players: playerObjs};
                 var renderedTemplate = yourChoicesTemplate(context);
                 $("#your-choices-view").html(renderedTemplate);
                 attachToggleListeners($("#your-choices"), false);

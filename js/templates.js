@@ -1,6 +1,6 @@
 Array.prototype.forEachDone = function(fn, scope, lastfn) {
     for(var i = 0, c = 0, len = this.length; i < len; i++) {
-        fn.call(scope, this[i], i, this, function() {
+        fn.call(scope, this[i], i, this, function() { // fn should be set up as fn(num, i, arr, done)
             ++c === len && lastfn();
         });
     }
@@ -25,7 +25,7 @@ var renderSearchResults = function (IDs, data) {
             numParticipants = Object.keys(participants).length;
         }
         // Then iterate through Smasher IDs
-        IDs.forEachDone(function (key) {
+        IDs.forEachDone(function (key, i, arr, done) {
             var playerObj = data[key];
             if (!playerObj.handle) {
                 // Assign empty player handle to empty string
@@ -42,12 +42,13 @@ var renderSearchResults = function (IDs, data) {
                     playerObj.popularity = 0;
                 }
                 playerObjs.push(playerObj);
+                done();
             });
         }, this, function () {
-            var context = {players: []};
-            var renderedTemplate = yourChoicesTemplate(context);
-            $("#your-choices-view").html(renderedTemplate);
-            attachToggleListeners($("#your-choices"), false);
+            var context = {players: playerObjs};
+            var renderedTemplate = searchResultsTemplate(context);
+            $("#search-results-view").html(renderedTemplate);
+            attachToggleListeners($("#search-results"), false);
             adjustPageHeight();
         });
     });
