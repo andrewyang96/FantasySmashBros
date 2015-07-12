@@ -79,6 +79,9 @@ $("#game-choice-form").change(function () {
     });
 });
 
+/* Begin your-choices templating code.
+ * Probably should belong in templates.js, but whatever. */
+
 var yourChoicesTemplateSrc = $("#your-choices-template").html();
 var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
 
@@ -96,12 +99,12 @@ var renderChoices = function (IDs, data) {
             // TODO add popularity and point calculations
             playerObjs.push(playerObj);
         });
+    }
         var context = {players: playerObjs};
         var renderedTemplate = yourChoicesTemplate(context);
         $("#your-choices-view").html(renderedTemplate);
         attachToggleListeners($("#your-choices"), false);
         adjustPageHeight();
-    }
 };
 
 /* Main function */
