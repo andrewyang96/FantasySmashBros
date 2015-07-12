@@ -76,7 +76,7 @@ input[type=text]:focus {
 	height: 15vh;
 }
 
-#search-results {
+#search-results, #your-choices {
 	list-style-type: none;
 	padding: 0;
 }
