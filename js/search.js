@@ -42,11 +42,14 @@ var searchPlayers = function (searchQuery, game, sortType, sortOrder) {
         });
         // Sort
         var sortFuncs = [nameSort, handleSort, popSort];
-        filteredIDs.sort(function (a, b) {
-            return sortFuncs[sortType](a, b, data) * sortOrder;
+        ref.child(game).child("freqs").once("value", function (snapshot) {
+            var freqs = snapshot.val();
+            filteredIDs.sort(function (a, b) {
+                return sortFuncs[sortType](a, b, data, freqs) * sortOrder;
+            });
+            // Render
+            renderSearchResults(filteredIDs, data);
         });
-        // Render
-        renderSearchResults(filteredIDs, data);
     });
 };
 
@@ -74,6 +77,22 @@ var handleSort = function (a, b, data) {
     }
 };
 
-var popSort = function (a, b, data) {
-    return nameSort(a, b); // TODO
+var popSort = function (a, b, data, freqs) {
+    var aPop = 0;
+    var bPop = 0;
+    if (freqs) {
+        if (freqs[a]) {
+            aPop = Object.keys(freqs[a]).length;
+        }
+        if (freqs[b]) {
+            bPop = Object.keys(freqs[b]).length;
+        }
+    }
+    if (aPop < bPop) {
+        return -1;
+    } else if (aPop > bPop) {
+        return 1;
+    } else {
+        return 0;
+    }
 };
