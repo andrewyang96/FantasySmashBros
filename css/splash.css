@@ -1,5 +1,7 @@
 #splash {
-	background: black;
+	background: url("../img/bigcrowd.jpg") no-repeat center center fixed;
+	background-size: 100%;
+	background-color: black;
 	padding-top: 5vh;
 	width: 100vw;
 	height: 100vh;
