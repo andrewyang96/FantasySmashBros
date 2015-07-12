@@ -47,11 +47,12 @@ var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
 var renderChoices = function (IDs, data) {
     var playerObjs = [];
     if (IDs) {
+        IDs = Object.keys(IDs);
         IDs.forEach(function (key) {
-        var playerObj = data[key];
-        if (!playerObj.handle) {
-            // Assign empty player handle to empty string
-            playerObj.handle = "";
+            var playerObj = data[key];
+            if (!playerObj.handle) {
+                // Assign empty player handle to empty string
+                playerObj.handle = "";
         }
         // TODO add popularity and point calculations
         playerObjs.push(playerObj);
