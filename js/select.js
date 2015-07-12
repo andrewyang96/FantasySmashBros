@@ -41,10 +41,10 @@ var canAddPlayer = function (choices, newChoice) {
 
 function setupChoicesLoader(ID) {
     if (!ID) ID = getUserID();
-    var game = $("input[type=radio][name=game]:checked").val();
     ref.child("ssb4").child("choices").child(ID).on("value", function (snapshot) {
         var newChoices = snapshot.val();
         // Re-render template
+        var game = $("input[type=radio][name=game]:checked").val();
         if (game == "ssb4") {
             getPlayerData(game, function (data) {
                 renderChoices(newChoices, data);
@@ -54,6 +54,7 @@ function setupChoicesLoader(ID) {
     ref.child("ssbm").child("choices").child(ID).on("value", function (snapshot) {
         var newChoices = snapshot.val();
         // Re-render template
+        var game = $("input[type=radio][name=game]:checked").val();
         if (game == "ssbm") {
             getPlayerData(game, function (data) {
                 renderChoices(newChoices, data);
@@ -61,6 +62,16 @@ function setupChoicesLoader(ID) {
         }
     });
 }
+
+$("#game-choice-form").change(function () {
+    var game = $("input[type=radio][name=game]:checked").val();
+    ref.child(game).child("choices").child(ID).once("value", function (snapshot) {
+        var newChoices = snapshot.val();
+        getPlayerData(game, function (data) {
+            renderChoices(newChoices, data);
+        });
+    });
+});
 
 var yourChoicesTemplateSrc = $("#your-choices-template").html();
 var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
