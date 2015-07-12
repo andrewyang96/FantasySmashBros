@@ -1,23 +1,56 @@
+Array.prototype.forEachDone = function(fn, scope, lastfn) {
+    for(var i = 0, c = 0, len = this.length; i < len; i++) {
+        fn.call(scope, this[i], i, this, function() {
+            ++c === len && lastfn();
+        });
+    }
+};
+
+function round(num, places) {
+    var multiplier = Math.pow(10, places);
+    return Math.round(num * multiplier) / multiplier;
+}
+
 var searchResultsTemplateSrc = $("#search-results-template").html();
 var searchResultsTemplate = Handlebars.compile(searchResultsTemplateSrc);
 
 var renderSearchResults = function (IDs, data) {
+    var game = $("input[type=radio][name=game]:checked").val();
     var playerObjs = [];
-    IDs.forEach(function (key) {
+    IDs.forEachDone(function (key) {
         var playerObj = data[key];
         if (!playerObj.handle) {
             // Assign empty player handle to empty string
             playerObj.handle = "";
         }
         playerObj.id = key;
-        // TODO add popularity and point calculations
-        playerObjs.push(playerObj);
+        // Calculate popularity
+        ref.child(game).child("participants").once("value", function (snapshot) {
+            var participants = snapshot.val();
+            if (numParticipants) {
+                var numParticipants = Object.keys(participants).length;
+                ref.child(game).child("freqs").child(key).once("value", function (snap) {
+                    var players = snap.val();
+                    if (players) {
+                        var numPlayers = Object.keys(players).length;
+                        playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
+                    } else {
+                        playerObj.popularity = 0;
+                    }
+                    playerObjs.push(playerObj);
+                });
+            } else {
+                playerObj.popularity = 0;
+                playerObjs.push(playerObj);
+            }
+        });
+    }, this, function () {
+        var context = {players: playerObjs};
+        var renderedTemplate = searchResultsTemplate(context);
+        $("#search-results-view").html(renderedTemplate);
+        attachToggleListeners($("#search-results"), true);
+        adjustPageHeight();
     });
-    var context = {players: playerObjs};
-    var renderedTemplate = searchResultsTemplate(context);
-    $("#search-results-view").html(renderedTemplate);
-    attachToggleListeners($("#search-results"), true);
-    adjustPageHeight();
 };
 
 var adjustPageHeight = function () {

@@ -88,25 +88,52 @@ var yourChoicesTemplateSrc = $("#your-choices-template").html();
 var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
 
 var renderChoices = function (IDs, data) {
-    var playerObjs = [];
+    var game = $("input[type=radio][name=game]:checked").val();
     if (IDs) {
+        var playerObjs = [];
         IDs = Object.keys(IDs);
-        IDs.forEach(function (key) {
+        IDs.forEachDone(function (key) {
             var playerObj = data[key];
             if (!playerObj.handle) {
                 // Assign empty player handle to empty string
                 playerObj.handle = "";
             }
             playerObj.id = key;
-            // TODO add popularity and point calculations
-            playerObjs.push(playerObj);
+            // Calculate popularity
+            ref.child(game).child("participants").once("value", function (snapshot) {
+                var participants = snapshot.val();
+                if (numParticipants) {
+                    var numParticipants = Object.keys(participants).length;
+                    ref.child(game).child("freqs").child(key).once("value", function (snap) {
+                        var players = snap.val();
+                        if (players) {
+                            var numPlayers = Object.keys(players).length;
+                            playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
+                        } else {
+                            playerObj.popularity = 0;
+                        }
+                        playerObjs.push(playerObj);
+                    });
+                } else {
+                    playerObj.popularity = 0;
+                    playerObjs.push(playerObj);
+                }
+            });
+        }, this, function () {
+            var context = {players: []};
+            var renderedTemplate = yourChoicesTemplate(context);
+            $("#your-choices-view").html(renderedTemplate);
+            attachToggleListeners($("#your-choices"), false);
+            adjustPageHeight();
         });
-    }
-        var context = {players: playerObjs};
+    } else {
+        // Clear choices
+        var context = {players: []};
         var renderedTemplate = yourChoicesTemplate(context);
         $("#your-choices-view").html(renderedTemplate);
         attachToggleListeners($("#your-choices"), false);
         adjustPageHeight();
+    }
 };
 
 /* Main function */
