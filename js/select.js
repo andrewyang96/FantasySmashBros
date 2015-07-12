@@ -40,7 +40,7 @@ var canAddPlayer = function (choices, newChoice) {
 };
 
 function setupChoicesLoader(ID) {
-    if (!ID) var ID = getUserID();
+    if (!ID) ID = getUserID();
     var game = $("input[type=radio][name=game]:checked").val();
     ref.child(game).child("choices").child(ID).on("value", function (snapshot) {
         var newChoices = snapshot.val();
