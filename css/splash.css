@@ -1,25 +1,11 @@
 #splash {
-	background: url("../img/bigcrowd.jpg") no-repeat center center fixed;
+	background: url("../img/bigcrowd-bg.jpg") no-repeat center center fixed;
 	background-size: 100%;
 	background-color: black;
 	padding-top: 5vh;
 	width: 100vw;
 	height: 110vh;
 }
-/*
-div::after {
-	content: "";
-	background: url("../img/bigcrowd.jpg") no-repeat center center fixed;
-	background-color: black;
-	background-size: 100%;
-	opacity: 0.2;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position: absolute;
-	z-index: -1;
-}*/
 
 #splash #message {
 	width: 40vw;
