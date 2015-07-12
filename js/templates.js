@@ -32,7 +32,7 @@ var adjustPageHeight = function () {
     });
 };
 
-var attachToggleListeners = function (olElement) {
+var attachToggleListeners = function (olElement, isChooseBtn) {
     olElement.find("li").each(function () {
         // Store heights beforehand
         $(this).data("fullHeight", $(this).outerHeight());
@@ -63,12 +63,19 @@ var attachToggleListeners = function (olElement) {
                 }, 200);
             }
         });
-        // Attach click listener to CHOOSE button
-        var chooseBtn = $(this).find(".choose-button");
-        chooseBtn.on("click", function () {
-            var game = $("input[type=radio][name=game]:checked").val();
-            var userID = getUserID();
-            addPlayer($(this).attr("id"), userID, game);
-        });
+        // Attach add/remove listeners
+        var game = $("input[type=radio][name=game]:checked").val();
+        var userID = getUserID();
+        if (isChooseBtn) {
+            var chooseBtn = $(this).find(".choose-button");
+            chooseBtn.on("click", function () {
+                addPlayer($(this).attr("id"), userID, game);
+            });
+        } else { // else it's remove btn
+            var removeBtn = $(this).find(".remove-button");
+            removeBtn.on("click", function () {
+                removePlayer($(this).attr("id"), userID, game);
+            });
+        }   
     });
-}
+};

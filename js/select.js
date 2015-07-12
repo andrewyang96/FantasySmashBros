@@ -1,7 +1,7 @@
 var addPlayer = function (playerID, userID, game) {
     // WHERE THE REAL MAGIC IS!
     console.log("Choosing " + playerID);
-    if (userID) {
+    if (playerID && userID && game) {
         // Validate selection
         ref.child(game).child("choices").child(userID).once("value", function (snapshot) {
             var choices = snapshot.val();
@@ -14,9 +14,20 @@ var addPlayer = function (playerID, userID, game) {
             }
         });
     } else {
-        console.log("You're not logged in");
+        console.log("You must specify a player, or you must be logged in, or you must specify a game.");
     }
 };
+
+var removePlayer = function (playerID, userID, game) {
+    console.log("Removing " + playerID);
+    if (playerID && userID && game) {
+        ref.child(game).child("choices").child(userID).child(playerID).remove(function () {
+            console.log("Successfully removed player " + playerID);
+        });
+    } else {
+        console.log("You must specify a player, or you must be logged in, or you must specify a game.");
+    }
+}
 
 var canAddPlayer = function (choices, newChoice) {
     // Choices cannot be more than length 6 and cannot contain duplicates
@@ -53,15 +64,15 @@ var renderChoices = function (IDs, data) {
             if (!playerObj.handle) {
                 // Assign empty player handle to empty string
                 playerObj.handle = "";
-        }
-        // TODO add popularity and point calculations
-        playerObjs.push(playerObj);
-    });
-    var context = {players: playerObjs};
-    var renderedTemplate = yourChoicesTemplate(context);
-    $("#your-choices-view").html(renderedTemplate);
-    attachToggleListeners($("#your-choices"));
-    adjustPageHeight();
+            }
+            // TODO add popularity and point calculations
+            playerObjs.push(playerObj);
+        });
+        var context = {players: playerObjs};
+        var renderedTemplate = yourChoicesTemplate(context);
+        $("#your-choices-view").html(renderedTemplate);
+        attachToggleListeners($("#your-choices"));
+        adjustPageHeight();
     }
 };
 
