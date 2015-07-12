@@ -16,43 +16,51 @@ var searchResultsTemplate = Handlebars.compile(searchResultsTemplateSrc);
 
 var renderSearchResults = function (IDs, data) {
     var game = $("input[type=radio][name=game]:checked").val();
-    var playerObjs = [];
-    ref.child(game).child("participants").once("value", function (snapshot) {
-        // First get participants
-        var participants = snapshot.val();
-        var numParticipants = Infinity;
-        if (participants) {
-            numParticipants = Object.keys(participants).length;
-        }
-        // Then iterate through Smasher IDs
-        IDs.forEachDone(function (key, i, arr, done) {
-            var playerObj = data[key];
-            if (!playerObj.handle) {
-                // Assign empty player handle to empty string
-                playerObj.handle = "";
+    if (IDs.length > 0) {
+        var playerObjs = [];
+        ref.child(game).child("participants").once("value", function (snapshot) {
+            // First get participants
+            var participants = snapshot.val();
+            var numParticipants = Infinity;
+            if (participants) {
+                numParticipants = Object.keys(participants).length;
             }
-            playerObj.id = key;
-            // Calculate popularity
-            ref.child(game).child("freqs").child(key).once("value", function (snap) {
-                var players = snap.val();
-                if (players) {
-                    var numPlayers = Object.keys(players).length;
-                    playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
-                } else {
-                    playerObj.popularity = 0;
+            // Then iterate through Smasher IDs
+            IDs.forEachDone(function (key, i, arr, done) {
+                var playerObj = data[key];
+                if (!playerObj.handle) {
+                    // Assign empty player handle to empty string
+                    playerObj.handle = "";
                 }
-                playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
-                playerObjs.push(playerObj);
-                done();
+                playerObj.id = key;
+                // Calculate popularity
+                ref.child(game).child("freqs").child(key).once("value", function (snap) {
+                    var players = snap.val();
+                    if (players) {
+                        var numPlayers = Object.keys(players).length;
+                        playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
+                    } else {
+                        playerObj.popularity = 0;
+                    }
+                    playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
+                    playerObjs.push(playerObj);
+                    done();
+                });
+            }, this, function () {
+                var context = {players: playerObjs};
+                var renderedTemplate = searchResultsTemplate(context);
+                $("#search-results-view").html(renderedTemplate);
+                attachToggleListeners($("#search-results"), true);
+                adjustPageHeight();
             });
-        }, this, function () {
-            var context = {players: playerObjs};
-            var renderedTemplate = searchResultsTemplate(context);
-            $("#search-results-view").html(renderedTemplate);
-            attachToggleListeners($("#search-results"), true);
-            adjustPageHeight();
         });
-    });
+    } else {
+        var context = {players: []};
+        var renderedTemplate = searchResultsTemplate(context);
+        $("#search-results-view").html(renderedTemplate);
+        attachToggleListeners($("#search-results"), true);
+        adjustPageHeight();
+    }
 };
 
 var adjustPageHeight = function () {
