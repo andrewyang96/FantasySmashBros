@@ -27,7 +27,7 @@ var renderSearchResults = function (IDs, data) {
         // Calculate popularity
         ref.child(game).child("participants").once("value", function (snapshot) {
             var participants = snapshot.val();
-            if (numParticipants) {
+            if (participants) {
                 var numParticipants = Object.keys(participants).length;
                 ref.child(game).child("freqs").child(key).once("value", function (snap) {
                     var players = snap.val();
