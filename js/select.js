@@ -42,12 +42,23 @@ var canAddPlayer = function (choices, newChoice) {
 function setupChoicesLoader(ID) {
     if (!ID) ID = getUserID();
     var game = $("input[type=radio][name=game]:checked").val();
-    ref.child(game).child("choices").child(ID).on("value", function (snapshot) {
+    ref.child("ssb4").child("choices").child(ID).on("value", function (snapshot) {
         var newChoices = snapshot.val();
         // Re-render template
-        getPlayerData(game, function (data) {
-            renderChoices(newChoices, data);
-        });
+        if (game == "ssb4") {
+            getPlayerData(game, function (data) {
+                renderChoices(newChoices, data);
+            });
+        }
+    });
+    ref.child("ssbm").child("choices").child(ID).on("value", function (snapshot) {
+        var newChoices = snapshot.val();
+        // Re-render template
+        if (game == "ssbm") {
+            getPlayerData(game, function (data) {
+                renderChoices(newChoices, data);
+            });
+        }
     });
 }
 
