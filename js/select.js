@@ -65,6 +65,7 @@ var renderChoices = function (IDs, data) {
                 // Assign empty player handle to empty string
                 playerObj.handle = "";
             }
+            playerObj.id = key;
             // TODO add popularity and point calculations
             playerObjs.push(playerObj);
         });
