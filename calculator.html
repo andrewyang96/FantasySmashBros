@@ -1,11 +1,38 @@
+<style>
+	body {
+		font-size: 1em;
+	}
+	form {
+		font-size: 1em;
+	}
+	input {
+		font-size: 1em;
+	}
+	input[type="number"] {
+		width: 4em;
+	}
+</style>
 <form id="calculator" method="post" onsubmit="return false;">
     Percent: <input type="number" name="percent" min="0" max="100" step="0.1" value="0">
     <br>
-    Place: <input type="number" name="place" min="1" value="1">
+    Place: &nbsp;&nbsp;&nbsp;<input type="number" name="place" min="1" value="1">
     <br>
     <input type="submit">
 </form>
 <p>Score: <span id="score"></span></p>
+
+<h1>How Scoring is Determined</h1>
+<p>The score of each Smasher is determined by two factors: popularity and placement. A Smasher can only earn points if he/she places in the top 64. Given that, the score of said Smasher increases with better placement and decreases with popularity. Thus, a tradeoff occurs that encourages people to choose underrated Smashers.</p>
+<h2>The Equations</h2>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Maximum&space;Score&space;=&space;1000&space;*&space;(\frac{1}{2^{20}})^{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Maximum&space;Score&space;=&space;1000&space;*&space;(\frac{1}{2^{20}})^{x}" title="Maximum Score = 1000 * (\frac{1}{2^{20}})^{x}" /></a>
+<pre>Where x is the percent (out of 100) of people who choose the Smasher.</pre>
+<p>The function determining the maximum score is an exponential decay function where the score is halved for every 20% increase in popularity</p>
+
+<br>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=Results&space;Multiplier&space;=&space;\begin{cases}&space;x^{-0.57076}&space;&&space;1\leq&space;x\leq&space;64&space;\\&space;0&space;&&space;x&space;>&space;64&space;\end{cases}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Results&space;Multiplier&space;=&space;\begin{cases}&space;x^{-0.57076}&space;&&space;1\leq&space;x\leq&space;64&space;\\&space;0&space;&&space;x&space;>&space;64&space;\end{cases}" title="Results Multiplier = \begin{cases} x^{-0.57076} & 1\leq x\leq 64 \\ 0 & x > 64 \end{cases}" /></a>
+<pre>Where x is the placement of the Smasher</pre>
+<p>The function determining the results multiplier is a power function such that Smashers placing 49th-64th (effectively 56.5th place) score 1/10th as much as if they got 1st place.</p>
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/scoring.js"></script>
