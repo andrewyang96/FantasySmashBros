@@ -24,15 +24,35 @@
 <h1>How Scoring is Determined</h1>
 <p>The score of each Smasher is determined by two factors: popularity and placement. A Smasher can only earn points if he/she places in the top 64. Given that, the score of said Smasher increases with better placement and decreases with popularity. Thus, a tradeoff occurs that encourages people to choose underrated Smashers.</p>
 <h2>The Equations</h2>
-<a href="https://www.codecogs.com/eqnedit.php?latex=Maximum&space;Score&space;=&space;1000&space;*&space;(\frac{1}{2^{20}})^{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Maximum&space;Score&space;=&space;1000&space;*&space;(\frac{1}{2^{20}})^{x}" title="Maximum Score = 1000 * (\frac{1}{2^{20}})^{x}" /></a>
-<pre>Where x is the percent (out of 100) of people who choose the Smasher.</pre>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Maximum&space;Score&space;=&space;1000&space;*&space;(\frac{1}{2^{\frac{1}{20}}})^{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Maximum&space;Score&space;=&space;1000&space;*&space;(\frac{1}{2^{\frac{1}{20}}})^{x}" title="Maximum Score = 1000 * (\frac{1}{2^{\frac{1}{20}}})^{x}" /></a>
+<pre>Where x is the percent (a number between 0 and 100) of people who choose the Smasher.</pre>
 <p>The function determining the maximum score is an exponential decay function where the score is halved for every 20% increase in popularity</p>
 
 <br>
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=Results&space;Multiplier&space;=&space;\begin{cases}&space;x^{-0.57076}&space;&&space;1\leq&space;x\leq&space;64&space;\\&space;0&space;&&space;x&space;>&space;64&space;\end{cases}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Results&space;Multiplier&space;=&space;\begin{cases}&space;x^{-0.57076}&space;&&space;1\leq&space;x\leq&space;64&space;\\&space;0&space;&&space;x&space;>&space;64&space;\end{cases}" title="Results Multiplier = \begin{cases} x^{-0.57076} & 1\leq x\leq 64 \\ 0 & x > 64 \end{cases}" /></a>
 <pre>Where x is the placement of the Smasher</pre>
-<p>The function determining the results multiplier is a power function such that Smashers placing 49th-64th (effectively 56.5th place) score 1/10th as much as if they got 1st place.</p>
+<p>The function determining the results multiplier is a power function such that Smashers placing 49th-64th (effectively 56.5th place) score 1/10th as much as if they got 1st place. In the double elimination format, there are ties, so the actual values for x is shown in the following table:</p>
+
+<table border="1">
+	<tr><td>Place</td><td>x value</td></tr>
+	<tr><td>1</td><td>1</td></tr>
+	<tr><td>2</td><td>2</td></tr>
+	<tr><td>3</td><td>3</td></tr>
+	<tr><td>4</td><td>4</td></tr>
+	<tr><td>5-6</td><td>5.5</td></tr>
+	<tr><td>7-8</td><td>7.5</td></tr>
+	<tr><td>9-12</td><td>10.5</td></tr>
+	<tr><td>13-16</td><td>15.5</td></tr>
+	<tr><td>17-24</td><td>20.5</td></tr>
+	<tr><td>25-32</td><td>28.5</td></tr>
+	<tr><td>33-48</td><td>40.5</td></tr>
+	<tr><td>49-64</td><td>56.5</td></tr>
+</table>
+
+<h2>Putting Them Together</h2>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Final&space;Score&space;=&space;Maximum&space;Score&space;*&space;Results&space;Multiplier" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Final&space;Score&space;=&space;Maximum&space;Score&space;*&space;Results&space;Multiplier" title="Final Score = Maximum Score * Results Multiplier" /></a>
+<p>The final score is simply the maximum score multiplied by the results multiplier.</p>
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/scoring.js"></script>
