@@ -3,6 +3,8 @@ import os
 import json
 import datetime
 
+# Run as cron job!
+
 ref = firebase.FirebaseApplication("https://fantasy-smash-bros.firebaseio.com/", None)
 CURDIR = os.path.dirname(os.path.realpath(__file__))
 DATAFILEPATH = os.path.abspath(os.path.join(CURDIR, "..", "data", "{0}.json"))
