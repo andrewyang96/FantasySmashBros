@@ -14,10 +14,10 @@ GAMES = ["ssb4", "ssbm"]
 def getFreqsAndParticipants(game, limit=None):
     print "Fetching players for game", game
     participants = ref.get("/{0}/participants".format(game), None)
-    numParticipants = float(len(participants))
+    numParticipants = len(participants)
     print "There are", numParticipants, "in game", game
     res = ref.get("/{0}/freqs".format(game), None)
-    freqs = sorted([(ID, 100 * len(players) / numParticipants) for ID, players in res.iteritems()], key=lambda x: -x[1])
+    freqs = sorted([(ID, 100 * len(players) / float(numParticipants)) for ID, players in res.iteritems()], key=lambda x: -x[1])
     print "Returning frequencies"
     if limit is None or limit <= 0:
         return (freqs, numParticipants)
