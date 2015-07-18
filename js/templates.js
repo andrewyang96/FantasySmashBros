@@ -111,14 +111,18 @@ var attachToggleListeners = function (olElement, isChooseBtn) {
         var userID = getUserID();
         if (isChooseBtn) {
             var chooseBtn = $(this).find(".choose-button");
-            chooseBtn.on("click", function () {
-                addPlayer($(this).attr("id"), userID, game);
-            });
+            if (chooseBtn.length != 0) {
+                chooseBtn.on("click", function () {
+                    addPlayer($(this).attr("id"), userID, game);
+                });
+            }
         } else { // else it's remove btn
             var removeBtn = $(this).find(".remove-button");
-            removeBtn.on("click", function () {
-                removePlayer($(this).attr("id"), userID, game);
-            });
+            if (removeBtn.length != 0) {
+                removeBtn.on("click", function () {
+                    removePlayer($(this).attr("id"), userID, game);
+                });
+            }
         }   
     });
 };
