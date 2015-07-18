@@ -94,7 +94,7 @@ input[type=text]:focus {
 	padding: 1vh 1vw 1vh 1vw;
 }
 
-#search-results li:hover, #your-choices li:hover, #most-popular li {
+#search-results li:hover, #your-choices li:hover, #most-popular li:hover {
 	background: #D3D3D3;
 }
 
