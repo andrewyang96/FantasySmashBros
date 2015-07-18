@@ -15,10 +15,13 @@ var getSmasherPopularity = function (callback) {
 
 var renderPopularity = function (data) {
 	var game = $("input[type=radio][name=game]:checked").val();
-	var lastUpated = data.lastUpdated;
+	var lastUpdated = data.lastUpdated;
 	var pops = data[game];
 	var numParticipants = pops.numParticipants;
 	var freqs = pops.freqs;
+	freqs.forEach(function (player) {
+		player.scoreSpread = calculateScoreSpread(player.popularity);
+	});
 	var context = {numParticipants: numParticipants, freqs: freqs, lastUpdated: lastUpdated};
 	var renderedTemplate = mostPopularTemplate(context);
     $("#most-popular-view").html(renderedTemplate);
