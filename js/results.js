@@ -88,6 +88,12 @@ $("#game-choice-form").change(function () {
     getStandings(renderStandings);
 });
 
+var getPlayerData = function (game, callback) {
+	var BASEURL = "https://raw.githubusercontent.com/andrewyang96/FantasySmashBros/master/data/";
+    var url = BASEURL + game + ".json";
+    $.getJSON(url, callback);
+};
+
 $(document).ready(function () {
 	attemptLogin();
 	getSmasherPopularity(renderPopularity);
