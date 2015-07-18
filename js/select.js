@@ -171,7 +171,11 @@ var updateCountdown = function () {
 
 $(document).ready(function () {
     // NEED TO IMPORT scoring.js, login.js, search.js, and templates.js beforehand
-    attemptLogin();
-    if (renderSearchResults) renderSearchResults([]);
-    setInterval(updateCountdown, 500);
+    try {
+        renderSearchResults([]);
+        attemptLogin();
+        setInterval(updateCountdown, 500);
+    } catch {
+        console.log("Not on select.html");
+    }
 });
