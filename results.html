@@ -27,6 +27,46 @@
 				<!-- Show your choices and most popular choices in this column -->
 				<button id="fb-login" onclick="FBLogin()">Login with Facebook</button>
 				<h2>Your Choices:</h2>
+				<div id="your-choices-view">
+				<script id="your-choices-template" type="type/x-handlebars-template">
+					<ol id="your-choices">
+						{{#each players}}
+						<li>
+							<div class="preview">
+								<div class="smasher-info">
+									<div class="smasher-name">{{name}}</div>
+									<div class="smasher-handle">{{handle}}</div>
+								</div>
+
+								<div class="smasher-popularity">
+									{{popularity}}%
+								</div>
+
+								<div class="smasher-buttons">
+									<div class="btn-style-1 toggle-button">&#9660;</div>
+								</div>
+							</div>
+
+							<div class="details">
+								<table border="1" style="width:100%">
+									<tr>
+										<td>Place</td>
+										<td>Points</td>
+									</tr>
+									{{#each scoreSpread}}
+									<tr>
+										<td>{{place}}</td>
+										<td>{{score}}</td>
+									</tr>
+									{{/each}}
+								</table>
+							</div>
+						</li>
+						{{/each}}
+					</ol>
+				</script>
+				</div>
+
 
 				<h2>Most Popular Choices:</h2>
 				<div id="most-popular-view">

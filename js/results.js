@@ -1,11 +1,3 @@
-var getYourChoices = function (callback) {
-	// TODO
-};
-
-var renderYourChoices = function (data) {
-	// TODO
-};
-
 var mostPopularTemplateSrc = $("#most-popular-template").html();
 var mostPopularTemplate = Handlebars.compile(mostPopularTemplateSrc);
 
