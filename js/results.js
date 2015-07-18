@@ -94,6 +94,14 @@ var getPlayerData = function (game, callback) {
     $.getJSON(url, callback);
 };
 
+Array.prototype.forEachDone = function(fn, scope, lastfn) {
+    for(var i = 0, c = 0, len = this.length; i < len; i++) {
+        fn.call(scope, this[i], i, this, function() { // fn should be set up as fn(num, i, arr, done)
+            ++c === len && lastfn();
+        });
+    }
+};
+
 $(document).ready(function () {
 	attemptLogin();
 	getSmasherPopularity(renderPopularity);
