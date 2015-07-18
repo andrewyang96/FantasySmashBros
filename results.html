@@ -9,19 +9,42 @@
 	</head>
 
 	<body>
-		<ol>
-			<li>Leffen</li>
-			<li>PPMD</li>
-			<li>Armada</li>
-			<li>C9Mang0</li>
-			<li>Hungrybox</li>
-		</ol>
+		<div id="action">
+			<div class="col" id="left-col">
+				<form id="game-choice-form" onsubmit="return false;">
+					<div class="game-choice">
+						<input type="radio" name="game" id="ssb4" value="ssb4" checked>
+						<label for="ssb4">SM4SH</label>
+					</div>
+					<div class="game-choice">
+						<input type="radio" name="game" id="ssbm" value="ssbm">
+						<label for="ssbm">MELEE</label>
+					</div>
+				</form>
+			</div>
 
+			<div class="col" id="mid-col">
+				<!-- Show your choices and most popular choices in this column -->
+				<button id="fb-login" onclick="FBLogin()">Login with Facebook</button>
+				<h2>Your Choices:</h2>
+
+				<h2>Most Popular Choices:</h2>
+				<div id="most-popular-view">
+				<script id="most-popular-template" type="type/x-handlebars-template">
+					
+				</script>
+				</div>
+			</div>
+
+			<div class="col" id="right-col">
+				<!-- Show results and points earned once EVO ends -->
+			</div>
+		</div>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/handlebars-v3.0.3.js"></script>
 		<script src="js/firebase.js"></script>
 		<script src="js/scoring.js"></script>
 		<script src="js/login.js"></script>
-		<script src="js/popular.js"></script>
+		<script src="js/results.js"></script>
 	</body>
 </html>
