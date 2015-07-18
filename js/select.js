@@ -175,7 +175,7 @@ $(document).ready(function () {
         renderSearchResults([]);
         attemptLogin();
         setInterval(updateCountdown, 500);
-    } catch {
+    } catch (e) {
         console.log("Not on select.html");
     }
 });
