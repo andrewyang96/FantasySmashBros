@@ -17,7 +17,8 @@ var renderPopularity = function (data) {
 	var context = {numParticipants: numParticipants, freqs: freqs, lastUpdated: lastUpdated};
 	var renderedTemplate = mostPopularTemplate(context);
     $("#most-popular-view").html(renderedTemplate);
-    attachToggleListeners($("#most-popular"), false);
+    var mp = $("#most-popular");
+    attachToggleListeners(mp);
     adjustPageHeight();
 };
 
