@@ -30,6 +30,17 @@ var renderStandings = function (data) {
 	// TODO
 };
 
+var adjustPageHeight = function () {
+    // Reset height first
+    $(".col").css({
+        height: ""
+    });
+    var pageHeight = $(document).height();
+    $(".col").css({
+        height: pageHeight
+    });
+};
+
 var attachToggleListenersNoBtn = function (olElement) {
     olElement.find("li").each(function () {
         // Store heights beforehand
