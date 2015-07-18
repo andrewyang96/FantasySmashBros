@@ -68,19 +68,6 @@ function setupChoicesLoader(ID) {
     });
 }
 
-$("#game-choice-form").change(function () {
-    // First clear search results
-    renderSearchResults([]);
-    var game = $("input[type=radio][name=game]:checked").val();
-    var ID = getUserID();
-    ref.child(game).child("choices").child(ID).once("value", function (snapshot) {
-        var newChoices = snapshot.val();
-        getPlayerData(game, function (data) {
-            renderChoices(newChoices, data);
-        });
-    });
-});
-
 /* Begin your-choices templating code.
  * Probably should belong in templates.js, but whatever. */
 
@@ -172,7 +159,19 @@ var updateCountdown = function () {
 $(document).ready(function () {
     // NEED TO IMPORT scoring.js, login.js, search.js, and templates.js beforehand
     try {
-        renderSearchResults([]);
+        renderSearchResults([]); // Should throw exception with ReferenceError if not on select.html
+        $("#game-choice-form").change(function () {
+            // First clear search results
+            renderSearchResults([]);
+            var game = $("input[type=radio][name=game]:checked").val();
+            var ID = getUserID();
+            ref.child(game).child("choices").child(ID).once("value", function (snapshot) {
+                var newChoices = snapshot.val();
+                getPlayerData(game, function (data) {
+                    renderChoices(newChoices, data);
+                });
+            });
+        });
         attemptLogin();
         setInterval(updateCountdown, 500);
     } catch (e) {
