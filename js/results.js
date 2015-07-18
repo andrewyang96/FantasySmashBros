@@ -102,6 +102,11 @@ Array.prototype.forEachDone = function(fn, scope, lastfn) {
     }
 };
 
+function round(num, places) {
+    var multiplier = Math.pow(10, places);
+    return Math.round(num * multiplier) / multiplier;
+}
+
 $(document).ready(function () {
 	attemptLogin();
 	getSmasherPopularity(renderPopularity);
