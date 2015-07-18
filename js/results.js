@@ -1,9 +1,29 @@
+var getYourChoices = function (callback) {
+	// TODO
+};
+
+var renderYourChoices = function (data) {
+	// TODO
+};
+
+var mostPopularTemplateSrc = $("#most-popular-template").html();
+var mostPopularTemplate = Handlebars.compile(mostPopularTemplateSrc);
+
 var getSmasherPopularity = function (callback) {
 	$.getJSON("http://fantasysmashbros.com/popular/popular.json", callback);
 };
 
 var renderPopularity = function (data) {
-	// TODO
+	var game = $("input[type=radio][name=game]:checked").val();
+	var lastUpated = data.lastUpdated;
+	var pops = data[game];
+	var numParticipants = pops.numParticipants;
+	var freqs = pops.freqs;
+	var context = {numParticipants: numParticipants, freqs: freqs, lastUpdated: lastUpdated};
+	var renderedTemplate = mostPopularTemplate(context);
+    $("#most-popular-view").html(renderedTemplate);
+    attachToggleListeners($("#most-popular"), false);
+    adjustPageHeight();
 };
 
 var getStandings = function (callback) {
@@ -13,6 +33,12 @@ var getStandings = function (callback) {
 var renderStandings = function (data) {
 	// TODO
 };
+
+$("#game-choice-form").change(function () {
+	getYourChoices(renderYourChoices);
+    getSmasherPopularity(renderPopularity);
+    getStandings(renderStandings);
+});
 
 $(document).ready(function () {
 	attemptLogin();

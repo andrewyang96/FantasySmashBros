@@ -31,7 +31,41 @@
 				<h2>Most Popular Choices:</h2>
 				<div id="most-popular-view">
 				<script id="most-popular-template" type="type/x-handlebars-template">
-					
+					<ol id="most-popular">
+						{{#each freqs}}
+						<li>
+							<div class="preview">
+								<div class="smasher-info">
+									<div class="smasher-name">{{name}}</div>
+									<div class="smasher-handle">{{handle}}</div>
+								</div>
+
+								<div class="smasher-popularity">
+									{{popularity}}%
+								</div>
+
+								<div class="smasher-buttons">
+									<div class="btn-style-1 toggle-button" id="{{id}}">&#9660;</div>
+								</div>
+							</div>
+
+							<div class="details">
+								<table border="1" style="width:100%">
+									<tr>
+										<td>Place</td>
+										<td>Points</td>
+									</tr>
+									{{#each scoreSpread}}
+									<tr>
+										<td>{{place}}</td>
+										<td>{{score}}</td>
+									</tr>
+									{{/each}}
+								</table>
+							</div>
+						</li>
+						{{/each}}
+					</ol>
 				</script>
 				</div>
 			</div>
@@ -45,6 +79,7 @@
 		<script src="js/firebase.js"></script>
 		<script src="js/scoring.js"></script>
 		<script src="js/login.js"></script>
+		<script src="js/templates.js"></script>
 		<script src="js/results.js"></script>
 	</body>
 </html>
