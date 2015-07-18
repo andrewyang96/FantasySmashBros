@@ -18,7 +18,7 @@ function loginWithAuthData(authData) {
     ref.child("ssb4").child("participants").child(userID).set("true", function () {
         ref.child("ssbm").child("participants").child(userID).set("true", function () {
             // Init Firebase stuff
-            setupChoicesLoader(userID);
+            if (setupChoicesLoader) setupChoicesLoader(userID);
         });
     });
 }

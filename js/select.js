@@ -172,6 +172,6 @@ var updateCountdown = function () {
 $(document).ready(function () {
     // NEED TO IMPORT scoring.js, login.js, search.js, and templates.js beforehand
     attemptLogin();
-    renderSearchResults([]);
+    if (renderSearchResults) renderSearchResults([]);
     setInterval(updateCountdown, 500);
 });
