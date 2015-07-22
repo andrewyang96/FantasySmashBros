@@ -80,12 +80,12 @@ input[type=text]:focus {
 	height: 15vh;
 }
 
-#search-results, #your-choices, #most-popular {
+#search-results, #your-choices, #most-popular, #outcomes {
 	list-style-type: none;
 	padding: 0;
 }
 
-#search-results li, #your-choices li, #most-popular li {
+#search-results li, #your-choices li, #most-popular li, #outcomes li {
 	overflow: hidden; /* Prevent inner divs from spilling out below */
 	margin: 1vh auto 1vh auto;
 	border: 1px solid black;
@@ -94,7 +94,7 @@ input[type=text]:focus {
 	padding: 1vh 1vw 1vh 1vw;
 }
 
-#search-results li:hover, #your-choices li:hover, #most-popular li:hover {
+#search-results li:hover, #your-choices li:hover, #most-popular li:hover, #outcomes li:hover {
 	background: #D3D3D3;
 }
 

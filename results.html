@@ -112,7 +112,47 @@
 
 			<div class="col" id="right-col">
 				<!-- Show results and points earned once EVO ends -->
-				<h1>Results for EVO 2015 are not done yet! Keep your eyes out for updates!</h1>
+				<h2>Results will remain up until July 26.</h2>
+				<h2>I was only able to find the top 32 for Sm4sh. EVO apparently refuses to update their brackets :\</h2>
+				<div id="outcomes-view">
+				<script id="outcomes-template" type="type/x-handlebars-template">
+					<ol id="outcomes">
+						{{#each freqs}}
+						<li>
+							<div class="preview">
+								<div class="smasher-info">
+									<div class="smasher-name">{{name}}</div>
+									<div class="smasher-handle">{{handle}}</div>
+								</div>
+
+								<div class="smasher-popularity">
+									{{popularity}}%
+								</div>
+
+								<div class="smasher-buttons">
+									<div class="btn-style-1 toggle-button" id="{{id}}">&#9660;</div>
+								</div>
+							</div>
+
+							<div class="details">
+								<table border="1" style="width:100%">
+									<tr>
+										<td>Place</td>
+										<td>Points</td>
+									</tr>
+									{{#each scoreSpread}}
+									<tr>
+										<td>{{place}}</td>
+										<td>{{score}}</td>
+									</tr>
+									{{/each}}
+								</table>
+							</div>
+						</li>
+						{{/each}}
+					</ol>
+				</script>
+				</div>
 			</div>
 		</div>
 		<script src="js/jquery-1.11.3.min.js"></script>
