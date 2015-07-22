@@ -59,7 +59,10 @@ var renderStandings = function (data, playerData) {
 	            } else {
 	                playerObj.popularity = 0;
 	            }
+	            // Calculate score
 	            playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
+	            playerObj.place = i+1;
+	            player.score = calculateScore(playerObj.popularity, playerObj.place);
 	            playerObjs.push(playerObj);
 	            done();
 	        });

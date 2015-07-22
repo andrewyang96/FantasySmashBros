@@ -114,7 +114,7 @@
 				<!-- Show results and points earned once EVO ends -->
 				<h2>Results will remain up until July 26.</h2>
 				<h2>I was only able to find the top 32 for Sm4sh. EVO apparently refuses to update their brackets :\</h2>
-				
+
 				<div id="outcomes-view">
 				<script id="outcomes-template" type="type/x-handlebars-template">
 					<ol id="outcomes">
@@ -126,8 +126,10 @@
 									<div class="smasher-handle">{{handle}}</div>
 								</div>
 
-								<div class="smasher-popularity">
-									{{popularity}}%
+								<!-- Spaghetti code for showing popularity and score :\ -->
+								<div class="smasher-info">
+									<div class="smasher-name">{{score}}</div>
+									<div class="smasher-handle">{{popularity}}%</div>
 								</div>
 
 								<div class="smasher-buttons">
