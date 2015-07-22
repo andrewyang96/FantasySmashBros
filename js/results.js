@@ -22,12 +22,13 @@ var renderPopularity = function (data) {
     adjustPageHeight();
 };
 
-var getStandings = function (callback) {
-	// TODO
+var getStandings = function (game, callback) {
+	var BASEURL = "https://raw.githubusercontent.com/andrewyang96/FantasySmashBros/master/outcome/";
+	$.getJSON(BASEURL + game + ".json", callback);
 };
 
 var renderStandings = function (data) {
-	// TODO
+	console.log(data);
 };
 
 var adjustPageHeight = function () {
@@ -78,7 +79,7 @@ var attachToggleListenersNoBtn = function (olElement) {
 $("#game-choice-form").change(function () {
 	var game = $("input[type=radio][name=game]:checked").val();
 	getSmasherPopularity(renderPopularity);
-    getStandings(renderStandings);
+    getStandings(game, renderStandings);
 	var ID = getUserID();
 	ref.child(game).child("choices").child(ID).once("value", function (snapshot) {
 	    var newChoices = snapshot.val();
