@@ -77,6 +77,8 @@ var attachToggleListenersNoBtn = function (olElement) {
 
 $("#game-choice-form").change(function () {
 	var game = $("input[type=radio][name=game]:checked").val();
+	getSmasherPopularity(renderPopularity);
+    getStandings(renderStandings);
 	var ID = getUserID();
 	ref.child(game).child("choices").child(ID).once("value", function (snapshot) {
 	    var newChoices = snapshot.val();
@@ -84,8 +86,6 @@ $("#game-choice-form").change(function () {
 	        renderChoices(newChoices, data);
 	    });
 	});
-    getSmasherPopularity(renderPopularity);
-    getStandings(renderStandings);
 });
 
 var getPlayerData = function (game, callback) {
