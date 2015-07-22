@@ -35,34 +35,42 @@ var getStandings = function (game, playerData, callback) {
 var renderStandings = function (data, playerData) {
 	var playerObjs = [];
 	var game = $("input[type=radio][name=game]:checked").val();
-	// Convert array of IDs to playerObjs
-	data.forEachDone(function (key, i, arr, done) {
-        var playerObj = playerData[key];
-        if (!playerObj.handle) {
-            // Assign empty player handle to empty string
-            playerObj.handle = "";
-        }
-        playerObj.id = key;
-        // Calculate popularity
-        ref.child(game).child("freqs").child(key).once("value", function (snap) {
-            var players = snap.val();
-            if (players) {
-                var numPlayers = Object.keys(players).length;
-                playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
-            } else {
-                playerObj.popularity = 0;
+	ref.child(game).child("participants").once("value", function (snapshot) {
+            // First get participants
+            var participants = snapshot.val();
+            var numParticipants = Infinity;
+            if (participants) {
+                numParticipants = Object.keys(participants).length;
             }
-            playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
-            playerObjs.push(playerObj);
-            done();
-        });
-    }, this, function () {
-        var context = {players: playerObjs};
-        var renderedTemplate = outcomesTemplate(context);
-        $("#outcomes-view").html(renderedTemplate);
-        attachToggleListenersNoBtn($("#outcomes-view"));
-        adjustPageHeight();
-    });
+		// Convert array of IDs to playerObjs
+		data.forEachDone(function (key, i, arr, done) {
+	        var playerObj = playerData[key];
+	        if (!playerObj.handle) {
+	            // Assign empty player handle to empty string
+	            playerObj.handle = "";
+	        }
+	        playerObj.id = key;
+	        // Calculate popularity
+	        ref.child(game).child("freqs").child(key).once("value", function (snap) {
+	            var players = snap.val();
+	            if (players) {
+	                var numPlayers = Object.keys(players).length;
+	                playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
+	            } else {
+	                playerObj.popularity = 0;
+	            }
+	            playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
+	            playerObjs.push(playerObj);
+	            done();
+	        });
+	    }, this, function () {
+	        var context = {players: playerObjs};
+	        var renderedTemplate = outcomesTemplate(context);
+	        $("#outcomes-view").html(renderedTemplate);
+	        attachToggleListenersNoBtn($("#outcomes-view"));
+	        adjustPageHeight();
+	    });
+	});
 };
 
 var adjustPageHeight = function () {
@@ -144,5 +152,14 @@ function round(num, places) {
 
 $(document).ready(function () {
 	attemptLogin();
-	getSmasherPopularity(renderPopularity);
+	var game = $("input[type=radio][name=game]:checked").val();
+	getPlayerData(game, function (data) {
+		getSmasherPopularity(renderPopularity);
+	    getStandings(game, data, renderStandings);
+		var ID = getUserID(); // Code stops here if not logged in
+		ref.child(game).child("choices").child(ID).once("value", function (snapshot) {
+		    var newChoices = snapshot.val();
+		    renderChoices(newChoices, data);
+		});
+	});
 });
