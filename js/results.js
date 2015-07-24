@@ -36,12 +36,12 @@ var renderStandings = function (data, playerData) {
 	var playerObjs = [];
 	var game = $("input[type=radio][name=game]:checked").val();
 	ref.child(game).child("participants").once("value", function (snapshot) {
-            // First get participants
-            var participants = snapshot.val();
-            var numParticipants = Infinity;
-            if (participants) {
-                numParticipants = Object.keys(participants).length;
-            }
+        // First get participants
+        var participants = snapshot.val();
+        var numParticipants = Infinity;
+        if (participants) {
+            numParticipants = Object.keys(participants).length;
+        }
 		// Convert array of IDs to playerObjs
 		data.forEachDone(function (key, i, arr, done) {
 	        var playerObj = playerData[key];
@@ -85,47 +85,50 @@ var renderChoices = function (IDs, data) {
         var playerObjs = [];
         IDs = Object.keys(IDs);
         ref.child(game).child("participants").once("value", function (snapshot) {
-            // First get participants
-            var participants = snapshot.val();
-            var numParticipants = Infinity;
-            if (participants) {
-                numParticipants = Object.keys(participants).length;
-            }
-            // Then iterate through Smasher IDs
-            IDs.forEachDone(function (key, i, arr, done) {
-                var playerObj = data[key];
-                if (!playerObj.handle) {
-                    // Assign empty player handle to empty string
-                    playerObj.handle = "";
-                }
-                playerObj.id = key;
-                // Calculate popularity
-                ref.child(game).child("freqs").child(key).once("value", function (snap) {
-                    var players = snap.val();
-                    if (players) {
-                        var numPlayers = Object.keys(players).length;
-                        playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
-                    } else {
-                        playerObj.popularity = 0;
-                    }
-                    // Calculate score
-		            playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
-		            playerObj.place = i+1;
-		            playerObj.score = calculateScore(playerObj.popularity, playerObj.place);
-		            playerObjs.push(playerObj);
-		            done();
-                });
-            }, this, function () {
-                var context = {players: playerObjs};
-                var renderedTemplate = yourChoicesTemplate(context);
-                $("#your-choices-view").html(renderedTemplate);
-                try {
-                    attachToggleListeners($("#your-choices"), false);
-                } catch (e) {
-                    attachToggleListenersNoBtn($("#your-choices"));
-                }
-                adjustPageHeight();
-            });
+        	getStandings(game, null, function (standings) {
+        		// First get participants
+	            var participants = snapshot.val();
+	            var numParticipants = Infinity;
+	            if (participants) {
+	                numParticipants = Object.keys(participants).length;
+	            }
+	            // Then iterate through Smasher IDs
+	            IDs.forEachDone(function (key, i, arr, done) {
+	                var playerObj = data[key];
+	                if (!playerObj.handle) {
+	                    // Assign empty player handle to empty string
+	                    playerObj.handle = "";
+	                }
+	                playerObj.id = key;
+	                // Calculate popularity
+	                ref.child(game).child("freqs").child(key).once("value", function (snap) {
+	                    var players = snap.val();
+	                    if (players) {
+	                        var numPlayers = Object.keys(players).length;
+	                        playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
+	                    } else {
+	                        playerObj.popularity = 0;
+	                    }
+	                    // Calculate score
+			            playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
+			            playerObj.place = standings.indexOf(playerObj.id);
+			           	if (playerObj.place == -1) playerObj.place = Infinity;
+			            playerObj.score = calculateScore(playerObj.popularity, playerObj.place);
+			            playerObjs.push(playerObj);
+			            done();
+	                });
+	            }, this, function () {
+	                var context = {players: playerObjs};
+	                var renderedTemplate = yourChoicesTemplate(context);
+	                $("#your-choices-view").html(renderedTemplate);
+	                try {
+	                    attachToggleListeners($("#your-choices"), false);
+	                } catch (e) {
+	                    attachToggleListenersNoBtn($("#your-choices"));
+	                }
+	                adjustPageHeight();
+	            });
+        	});
         });
     } else {
         // Clear choices
