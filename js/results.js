@@ -76,6 +76,67 @@ var renderStandings = function (data, playerData) {
 	});
 };
 
+var yourChoicesTemplateSrc = $("#your-choices-template").html();
+var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
+
+var renderChoices = function (IDs, data) {
+    var game = $("input[type=radio][name=game]:checked").val();
+    if (IDs) {
+        var playerObjs = [];
+        IDs = Object.keys(IDs);
+        ref.child(game).child("participants").once("value", function (snapshot) {
+            // First get participants
+            var participants = snapshot.val();
+            var numParticipants = Infinity;
+            if (participants) {
+                numParticipants = Object.keys(participants).length;
+            }
+            // Then iterate through Smasher IDs
+            IDs.forEachDone(function (key, i, arr, done) {
+                var playerObj = data[key];
+                if (!playerObj.handle) {
+                    // Assign empty player handle to empty string
+                    playerObj.handle = "";
+                }
+                playerObj.id = key;
+                // Calculate popularity
+                ref.child(game).child("freqs").child(key).once("value", function (snap) {
+                    var players = snap.val();
+                    if (players) {
+                        var numPlayers = Object.keys(players).length;
+                        playerObj.popularity = round((numPlayers / numParticipants) * 100, 2);
+                    } else {
+                        playerObj.popularity = 0;
+                    }
+                    // Calculate score
+		            playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
+		            playerObj.place = i+1;
+		            playerObj.score = calculateScore(playerObj.popularity, playerObj.place);
+		            playerObjs.push(playerObj);
+		            done();
+                });
+            }, this, function () {
+                var context = {players: playerObjs};
+                var renderedTemplate = yourChoicesTemplate(context);
+                $("#your-choices-view").html(renderedTemplate);
+                try {
+                    attachToggleListeners($("#your-choices"), false);
+                } catch (e) {
+                    attachToggleListenersNoBtn($("#your-choices"));
+                }
+                adjustPageHeight();
+            });
+        });
+    } else {
+        // Clear choices
+        var context = {players: []};
+        var renderedTemplate = yourChoicesTemplate(context);
+        $("#your-choices-view").html(renderedTemplate);
+        attachToggleListeners($("#your-choices"), false);
+        adjustPageHeight();
+    }
+};
+
 var adjustPageHeight = function () {
     // Reset height first
     $(".col").css({
