@@ -81,6 +81,7 @@ var yourChoicesTemplate = Handlebars.compile(yourChoicesTemplateSrc);
 
 var renderChoices = function (IDs, data) {
     var game = $("input[type=radio][name=game]:checked").val();
+    var score = 0;
     if (IDs) {
         var playerObjs = [];
         IDs = Object.keys(IDs);
@@ -118,11 +119,12 @@ var renderChoices = function (IDs, data) {
 			           		playerObj.place += 1;
 			           	}
 			            playerObj.score = calculateScore(playerObj.popularity, playerObj.place);
+			            score += playerObj.score;
 			            playerObjs.push(playerObj);
 			            done();
 	                });
 	            }, this, function () {
-	                var context = {players: playerObjs};
+	                var context = {players: playerObjs, score: score};
 	                var renderedTemplate = yourChoicesTemplate(context);
 	                $("#your-choices-view").html(renderedTemplate);
 	                try {
@@ -136,7 +138,7 @@ var renderChoices = function (IDs, data) {
         });
     } else {
         // Clear choices
-        var context = {players: []};
+        var context = {players: [], score: score};
         var renderedTemplate = yourChoicesTemplate(context);
         $("#your-choices-view").html(renderedTemplate);
         attachToggleListeners($("#your-choices"), false);
