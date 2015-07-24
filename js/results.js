@@ -112,7 +112,11 @@ var renderChoices = function (IDs, data) {
 	                    // Calculate score
 			            playerObj.scoreSpread = calculateScoreSpread(playerObj.popularity);
 			            playerObj.place = standings.indexOf(playerObj.id);
-			           	if (playerObj.place == -1) playerObj.place = Infinity;
+			           	if (playerObj.place == -1) {
+			           		playerObj.place = Infinity;
+			           	} else {
+			           		playerObj.place += 1;
+			           	}
 			            playerObj.score = calculateScore(playerObj.popularity, playerObj.place);
 			            playerObjs.push(playerObj);
 			            done();
