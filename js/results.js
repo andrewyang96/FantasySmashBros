@@ -132,7 +132,7 @@ var renderChoices = function (IDs, data) {
 			            done();
 	                });
 	            }, this, function () {
-	            	getRanks(game, getUserID(), function (place) {
+	            	getRank(game, getUserID(), function (place) {
 	            		var context = {players: playerObjs, score: score, place: place};
 		                var renderedTemplate = yourChoicesTemplate(context);
 		                $("#your-choices-view").html(renderedTemplate);
