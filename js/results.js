@@ -25,6 +25,14 @@ var renderPopularity = function (data) {
 var outcomesTemplateSrc = $("#outcomes-template").html();
 var outcomesTemplate = Handlebars.compile(outcomesTemplateSrc);
 
+var getRank = function (game, playerID, callback) {
+	var URL = "http://fantasysmashbros.com/scoring/rankings.json";
+	$.getJSON(URL, function (data) {
+		var place = data[game][playerID].rank;
+		callback(place);
+	});
+};
+
 var getStandings = function (game, playerData, callback) {
 	var BASEURL = "https://raw.githubusercontent.com/andrewyang96/FantasySmashBros/master/outcome/";
 	$.getJSON(BASEURL + game + ".json", function (data) {
@@ -124,15 +132,17 @@ var renderChoices = function (IDs, data) {
 			            done();
 	                });
 	            }, this, function () {
-	                var context = {players: playerObjs, score: score};
-	                var renderedTemplate = yourChoicesTemplate(context);
-	                $("#your-choices-view").html(renderedTemplate);
-	                try {
-	                    attachToggleListeners($("#your-choices"), false);
-	                } catch (e) {
-	                    attachToggleListenersNoBtn($("#your-choices"));
-	                }
-	                adjustPageHeight();
+	            	getRanks(game, getUserID(), function (place) {
+	            		var context = {players: playerObjs, score: score, place: place};
+		                var renderedTemplate = yourChoicesTemplate(context);
+		                $("#your-choices-view").html(renderedTemplate);
+		                try {
+		                    attachToggleListeners($("#your-choices"), false);
+		                } catch (e) {
+		                    attachToggleListenersNoBtn($("#your-choices"));
+		                }
+		                adjustPageHeight();
+	            	});
 	            });
         	});
         });
