@@ -1,0 +1,20 @@
+nginx:
+    build: ./nginx
+    links:
+        - client1:client1
+        - client2:client2
+    ports:
+        - "80:80"
+client1:
+    build: ./client
+    ports:
+        - "8080"
+client2:
+    build: ./client
+    ports:
+        - "8080"
+database:
+    image: mongo
+    ports:
+        - "27017"
+        - "28017"
