@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: 
+Disallow: /login
+Disallow: /contact
+Disallow: /admin

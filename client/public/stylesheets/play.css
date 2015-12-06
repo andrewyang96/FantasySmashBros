@@ -1,0 +1,138 @@
+.left-col {
+    background: #D3D3D3;
+}
+
+.mid-col {
+    background: #808080;
+}
+
+.right-col {
+    background: #4040FF;
+}
+
+/* Game select CSS */
+
+#game-choice-form input[type=radio] {
+	display: none;
+}
+
+#game-choice-form label {
+    width: 100%;
+    font-size: 4vw;
+}
+
+#game-choice-form input[type=radio] + label {
+	/* Game unselected and not hovering */
+	background: #D3D3D3;
+	color: #808080;
+}
+
+#game-choice-form input[type=radio] + label:hover {
+	/* Game unselected and hovering */
+	background: white;
+}
+
+#game-choice-form input[type=radio]:checked + label {
+	/* Game selected and not hovering */
+	background: #ffcc33;
+	color: #6666ff;
+}
+
+#game-choice-form input[type=radio]:checked + label:hover {
+	/* Game selected and hovering */
+	background: #e7af07;
+}
+
+/* Search form CSS */
+
+#search-form {
+    margin-top: 5vh;
+}
+
+#search-form input[type=text], #search-form select {
+    width: 100%;
+}
+
+/* Tabs CSS */
+
+.tabs-menu {
+    width: 100%;
+    text-align: center;
+}
+
+.tabs-menu > .tabs-menu-item {
+    width: 40%;
+    font-size: 1.5em;
+}
+
+.mid-col .tabs-menu {
+    background: #696969;
+}
+
+.right-col .tabs-menu {
+    background: #ccccff;
+}
+
+.tab-panel {
+    /* Override */
+    padding: 0;
+}
+
+/* Info CSS */
+
+ol {
+	list-style-type: none;
+	padding: 0;
+}
+
+ol > li {
+    overflow: hidden;
+    margin: 1vh auto 1vh auto;
+    border: 1px solid black;
+    border-radius: 1em;
+    box-sizing: border-box; /* Prevent padding from changing size */
+    padding: 1vh 1vw 1vh 1vw;
+    font-size: 1.5vw;
+}
+
+ol > li .btn {
+    /* Override */
+    font-size: 1.5vw;
+}
+
+ol > li:hover {
+    background: #D3D3D3;
+}
+
+.smasher-subtitle {
+    font-size: 0.6em;
+}
+
+.popularity {
+    font-size: 1.2em;
+}
+
+.collapse > table {
+    margin-top: 2vh;
+    background: #b8b8ff;
+}
+
+.btn-circle {
+    width: 3vw;
+    height: 3vw;
+    text-align: center;
+    padding: 0.25vw 0;
+    font-size: 1vw;
+    line-height: 1.42;
+    border-radius: 2.5vw;
+}
+
+/* Pagination custom CSS */
+
+.pagination-sm li > a {
+    padding: 4px 8px 4px 8px;
+}
+
+.pagination {
+    margin-top: 0;
+}

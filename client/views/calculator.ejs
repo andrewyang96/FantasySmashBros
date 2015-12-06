@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include /partials/head.ejs %>
+	</head>
+	<body>
+		<% include /partials/navbar.ejs %>
+		<div class="container text-center">
+			<form id="calculator" onsubmit="return false;">
+				<div class="form-group row">
+					<div class="col-sm-2 col-sm-offset-4">
+						Percent
+					</div>
+
+					<div class="col-sm-2">
+						<input type="number" name="percent" min="0" max="100" step="0.01" value="0" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<div class="col-sm-2 col-sm-offset-4">
+						Place
+					</div>
+
+					<div class="col-sm-2">
+						<input type="number" name="place" min="1" value="1" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<div class="col-sm-2 col-sm-offset-5">
+						<button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Submit</button>
+					</div>
+				</div>
+			</form>
+
+			<h3>Score: <span id="score"></span></h3>
+
+			<hr>
+
+			<div class="row">
+				<h2>Score Spread for <span id="percent">_</span>% Popularity</h2>
+				<div class="col-xs-6 col-xs-offset-3">
+					<table id="scoreSpread" class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th class="text-center">Place</th>
+								<th class="text-center">Points</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>1</td><td></td></tr>
+							<tr><td>2</td><td></td></tr>
+							<tr><td>3</td><td></td></tr>
+							<tr><td>4</td><td></td></tr>
+							<tr><td>5</td><td></td></tr>
+							<tr><td>7</td><td></td></tr>
+							<tr><td>9</td><td></td></tr>
+							<tr><td>13</td><td></td></tr>
+							<tr><td>17</td><td></td></tr>
+							<tr><td>25</td><td></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<hr>
+		</div>
+
+		<div class="container">
+			<h1>How Scoring is Determined</h1>
+			<p class="lead">The score of each Smasher is determined by two factors: popularity and placement. A Smasher can only earn points if he/she places in the top 32. Given that, the score of said Smasher increases with better placement and decreases with popularity. Thus, a tradeoff occurs that encourages people to choose underrated Smashers who have at least a decent chance of placing in the top 32.</p>
+
+			<hr>
+
+			<h2>The Equations</h2>
+
+			<h3>Potential Score vs. Popularity</h3>
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-2">
+					<img title="Maximum Score = 1000 * (\frac{1}{2^{\frac{2}{25}}})^{x}" src="/images/maxscore.png" class="pull-right" />
+				</div>
+				<div class="col-sm-6">
+					Where x is the percent (a number between 0 and 100) of people who choose the Smasher.
+				</div>
+			</div>
+			<p style="margin-bottom:40px;font-size:18px">The function determining the maximum score is an exponential decay function where the score is halved for every 12.5% increase in popularity</p>
+
+			<h3>Smasher's Performance</h3>
+			<div class="row" style="margin-bottom:40px">
+				<div class="col-sm-5 col-sm-offset-1">
+					<img title="Results Multiplier = \begin{cases} x^{-0.620747} & 1\leq x\leq 32 \\ 0 & x > 32 \end{cases}" src="/images/resultsmultiplier.png" class="pull-right" />
+				</div>
+				<div class="col-sm-6">
+					Where x is the placement of the Smasher.
+				</div>
+			</div>
+			<p style="margin-bottom:40px;font-size:18px">The function determining the results multiplier is a power function such that Smashers placing 25th-32nd (effectively 28.5th place) score 1/8th as much as if they got 1st place. In the double elimination format, there are ties, so the actual values for x is shown in the following table:</p>
+
+			<div class="row" style="margin-bottom:40px">
+				<div class="col-xs-6 col-xs-offset-3">
+					<table class="table table-striped table-hover text-center">
+						<thead>
+							<tr>
+								<th class="text-center">Place</th>
+								<th class="text-center"><i>x</i> value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>1</td><td>1</td></tr>
+							<tr><td>2</td><td>2</td></tr>
+							<tr><td>3</td><td>3</td></tr>
+							<tr><td>4</td><td>4</td></tr>
+							<tr><td>5-6</td><td>5.5</td></tr>
+							<tr><td>7-8</td><td>7.5</td></tr>
+							<tr><td>9-12</td><td>10.5</td></tr>
+							<tr><td>13-16</td><td>15.5</td></tr>
+							<tr><td>17-24</td><td>20.5</td></tr>
+							<tr><td>25-32</td><td>28.5</td></tr>
+							<tr><td>33-48</td><td>40.5</td></tr>
+							<tr><td>49-64</td><td>56.5</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<hr>
+
+			<h2>Putting Them Together</h2>
+			<div class="row" style="margin-bottom:40px">
+				<div class="col-sm-12 text-center">
+					<img title="Final Score = Maximum Score * Results Multiplier" src="/images/finalscore.png" />
+				</div>
+			</div>
+			<p style="margin-bottom:40px;font-size:18px">The final score is simply the maximum score multiplied by the results multiplier.</p>
+		</div>
+
+		<script src="/javascripts/scoring.js"></script>
+		<script src="/javascripts/calculator.js"></script>
+		<% include /partials/footer.ejs %>
+	</body>
+</html>

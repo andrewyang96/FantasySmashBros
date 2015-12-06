@@ -1,0 +1,106 @@
+<div class="jumbotron splash" style="height:100vh;margin:0">
+    <div class="container text-center">
+        <div class="form-signin frosting">
+            <!-- Sign in screen -->
+            <div id="signin-view">
+                <form>
+                    <h2 class="form-signin-heading">Please sign in</h2>
+                    
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input id="inputEmail" name="email" class="form-control" placeholder="Email address" required="" autofocus="" type="email"/>
+                    
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input id="inputPassword" name="password" class="form-control" placeholder="Password" required="" type="password"/>
+                    
+                    <div class="checkbox text-left">
+                        <label>
+                            <input name="rememberMe" type="checkbox"/> Remember me
+                        </label>
+                    </div>
+                    
+                    <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Sign in</button>
+                </form>
+                
+                <button class="btn btn-lg btn-info login-btn" id="btn-forgot-password">Forgot Password</button>
+                <p><small>Don't have an account? <a id="btn-registration" href="#">Sign up here!</a></small></p>
+            </div>
+            
+            <!-- Registration screen -->
+            <div id="registration-view" style="display:none">
+                <form method="post" action="/api/users">
+                    <div class="text-left">
+                        <span class="glyphicon glyphicon-arrow-left back-btn" id="btn-cancel-registration"></span>
+                    </div>
+                    <h2 style="margin-top:0">Create an account</h2>
+                    
+                    <div class="form-group">
+                        <label for="registrationEmail" class="sr-only">Email Address</label>
+                        <input id="registrationEmail" name="email" class="form-control" placeholder="Email Address" required="" autofocus="" type="email" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registrationName" class="sr-only">Username (can be changed later)</label>
+                        <input id="registrationName" name="username" class="form-control" placeholder="Username (can be changed later)" required="" type="text" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registrationPassword" class="sr-only">Password</label>
+                        <input id="registrationPassword" name="password" class="form-control" placeholder="Password" required="" pattern=".{5,}" title="Must be at least 5 characters" type="password" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registrationConfirmPassword" class="sr-only">Confirm Password</label>
+                        <input id="registrationConfirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required="" type="password" />
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-xs-5">
+                            <label for="registrationFlair"><big>Flair Selection</big></label>
+                        </div>
+                        <div class="col-xs-7">
+                            <a href="#" id="registrationFlair" data-type="radiolist" data-name="flair" data-title="Select Flair" class="pull-left"></a>
+                        </div>
+                    </div>
+
+                    <div class="checkbox text-left">
+                        <label>
+                            <input name="agree" type="checkbox" required /> I agree to the <a target="_blank" href="/terms">Terms and Conditions</a>.
+                        </label>
+                    </div>
+                    
+                    <div class="g-recaptcha" data-sitekey="6Lf2SgoTAAAAAPVi-VwvyjRgfLx5xz_9okNQll0j"></div>
+                    
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Create Account</button>
+                    </div>
+                </form>
+                
+                <p class="status">Status text goes here</p>
+            </div>
+            
+            <!-- Forgot password screen -->
+            <div id="forgot-password-view" style="display:none">
+                <form>
+                    <div class="text-left">
+                        <span class="glyphicon glyphicon-arrow-left back-btn" id="btn-cancel-forgot-password"></span>
+                    </div>
+                    <h2>Forgot Password</h2>
+                    
+                    <div class="form-group" style="margin-top:5vh">
+                        <label for="forgotEmail" class="sr-only">Your email address</label>
+                        <input id="forgotEmail" name="email" class="form-control" placeholder="Your email address" required="" type="email" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Recover Password</button>
+                    </div>
+                </form>
+                
+                <p class="status">Status text goes here</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/javascripts/bganimation.js"></script>
+<script src="/javascripts/loginform.js"></script>

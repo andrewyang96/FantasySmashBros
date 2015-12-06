@@ -1,0 +1,54 @@
+<!-- Inject padding-top in body so that top of content doesn't go under navbar -->
+<style>
+	body {
+		padding-top: 70px;
+	}
+</style>
+
+<!-- Begin navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Fantasy Smash Bros</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li <% if (typeof dashboard !== "undefined") { %> class="active" <% } %>><a href="/dashboard">Dashboard</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li <% if (typeof about !== "undefined") { %> class="active" <% } %>>
+					<a href="/about">About</a>
+				</li>
+				<li <% if (typeof contribute !== "undefined") { %> class="active" <% } %>>
+					<a href="/contribute">Contribute</a>
+				</li>
+				<li <% if (typeof terms !== "undefined") { %> class="active" <% } %>>
+					<a href="/terms">Terms</a>
+				</li>
+				<li <% if (typeof contact !== "undefined") { %> class="active" <% } %>>
+					<a href="/contact">Contact</a>
+				</li>
+				<li class="dropdown">
+					<a href="/me" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UserName <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Profile</a></li>
+						<li><a href="#">Settings</a></li>
+						<li role="separator" class="divider"></li>
+						<li class="dropdown-header">Tools</li>
+						<li><a href="/flairs">Available Flairs</a></li>
+						<li><a href="/calculator">Calculator</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+</nav>
+<!-- End navbar -->

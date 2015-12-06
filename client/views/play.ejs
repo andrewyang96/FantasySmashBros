@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include /partials/head.ejs %>
+		<% include /partials/react.ejs %>
+		<script src="/javascripts/scoring.js"></script>
+		<link rel="stylesheet" href="/stylesheets/play.css" />
+	</head>
+	<body>
+		<% include /partials/navbar.ejs %>
+		
+		<div class="row-fluid" id="fsb-user-interface">
+		    <div class="col-xs-2 left-col text-center" id="game-toggle">
+		        <!-- Game toggle -->
+		    </div>
+		    
+		    <div id="mid-container">
+		        <!-- Search and select -->
+		    </div>
+		    
+		    <div class="col-xs-5 right-col">
+		        <!-- Your picks and results -->
+		    </div>
+		</div>
+
+		<script src="/javascripts/ui/play.js" type="text/jsx"></script>
+	</body>
+</html>

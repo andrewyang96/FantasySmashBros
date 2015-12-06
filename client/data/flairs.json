@@ -1,0 +1,1070 @@
+{
+  "flair-aclogo": {
+    "title": "Animal Crossing Logo",
+    "background-position": "0 0",
+    "width": "21px",
+    "height": "20px"
+  },
+  "flair-dreamlandlogo": {
+    "title": "Dreamland Logo",
+    "background-position": "0 -40px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-duckhuntlogo": {
+    "title": "Duck Hunt Logo",
+    "background-position": "0 -80px",
+    "width": "26px",
+    "height": "20px"
+  },
+  "flair-earthboundlogo": {
+    "title": "Earthbound Logo",
+    "background-position": "0 -120px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-fzerologo": {
+    "title": "F-Zero Logo",
+    "background-position": "0 -160px",
+    "width": "30px",
+    "height": "20px"
+  },
+  "flair-fireemblemlogo": {
+    "title": "Fire Emblem Logo",
+    "background-position": "0 -200px",
+    "width": "19px",
+    "height": "20px"
+  },
+  "flair-gwlogo": {
+    "title": "Game & Watch Logo",
+    "background-position": "0 -240px",
+    "width": "28px",
+    "height": "20px"
+  },
+  "flair-hyrulelogo": {
+    "title": "Hyrule Logo",
+    "background-position": "0 -280px",
+    "width": "23px",
+    "height": "20px"
+  },
+  "flair-iclogo": {
+    "title": "Ice Climbers Logo",
+    "background-position": "0 -320px",
+    "width": "17px",
+    "height": "20px"
+  },
+  "flair-kidicaruslogo": {
+    "title": "Kid Icarus Logo",
+    "background-position": "0 -360px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-konglogo": {
+    "title": "Donkey Kong Logo",
+    "background-position": "0 -400px",
+    "width": "25px",
+    "height": "20px"
+  },
+  "flair-megamanlogo": {
+    "title": "Mega Man Logo",
+    "background-position": "0 -440px",
+    "width": "21px",
+    "height": "20px"
+  },
+  "flair-metalgearlogo": {
+    "title": "Metal Gear Logo",
+    "background-position": "0 -480px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-metroidlogo": {
+    "title": "Metroid Logo",
+    "background-position": "0 -520px",
+    "width": "18px",
+    "height": "20px"
+  },
+  "flair-mushroomkingdomlogo": {
+    "title": "Mushroom Kingdom Logo",
+    "background-position": "0 -560px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-pacmanlogo": {
+    "title": "Pac-Man Logo",
+    "background-position": "0 -600px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-pikminlogo": {
+    "title": "Pikmin Logo",
+    "background-position": "0 -640px",
+    "width": "21px",
+    "height": "20px"
+  },
+  "flair-pokemonlogo": {
+    "title": "Pokémon Logo",
+    "background-position": "0 -680px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-punchoutlogo": {
+    "title": "Punch-Out!! Logo",
+    "background-position": "0 -720px",
+    "width": "23px",
+    "height": "20px"
+  },
+  "flair-roblogo": {
+    "title": "R.O.B. Logo",
+    "background-position": "0 -760px",
+    "width": "21px",
+    "height": "20px"
+  },
+  "flair-smashlogo": {
+    "title": "Smash Bros Logo",
+    "background-position": "0 -800px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-soniclogo": {
+    "title": "Sonic Logo",
+    "background-position": "0 -840px",
+    "width": "24px",
+    "height": "20px"
+  },
+  "flair-starfoxlogo": {
+    "title": "Star Fox Logo",
+    "background-position": "0 -880px",
+    "width": "30px",
+    "height": "20px"
+  },
+  "flair-streetfighterlogo": {
+    "title": "Street Fighter Logo",
+    "background-position": "-1px -918px",
+    "width": "25px",
+    "height": "23px"
+  },
+  "flair-wariologo": {
+    "title": "Wario Logo",
+    "background-position": "0 -967px",
+    "width": "30px",
+    "height": "20px"
+  },
+  "flair-wiifitlogo": {
+    "title": "Wii Fit Logo",
+    "background-position": "0 -1007px",
+    "width": "19px",
+    "height": "20px"
+  },
+  "flair-xenobladelogo": {
+    "title": "Xenoblade Logo",
+    "background-position": "0 -1047px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-yoshilogo": {
+    "title": "Yoshi Logo",
+    "background-position": "0 -1087px",
+    "width": "18px",
+    "height": "20px"
+  },
+  "flair-bowserbrawl": {
+    "title": "Bowser (SSBB)",
+    "background-position": "0 -1127px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-bowserjriggysm4sh": {
+    "title": "Iggy Koopa (SSB4)",
+    "background-position": "-3px -1164px",
+    "width": "12px",
+    "height": "18px"
+  },
+  "flair-bowserjrlarrysm4sh": {
+    "title": "Larry Koopa (SSB4)",
+    "background-position": "-2px -1202px",
+    "width": "14px",
+    "height": "18px"
+  },
+  "flair-bowserjrlemmysm4sh": {
+    "title": "Lemmy Koopa (SSB4)",
+    "background-position": "-3px -1240px",
+    "width": "13px",
+    "height": "18px"
+  },
+  "flair-bowserjrludwigsm4sh": {
+    "title": "Ludwig von Koopa (SSB4)",
+    "background-position": "-1px -1279px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-bowserjrmortonsm4sh": {
+    "title": "Morton Koopa, Jr. (SSB4)",
+    "background-position": "-2px -1316px",
+    "width": "15px",
+    "height": "17px"
+  },
+  "flair-bowserjrroysm4sh": {
+    "title": "Roy Koopa (SSB4)",
+    "background-position": "-1px -1356px",
+    "width": "16px",
+    "height": "15px"
+  },
+  "flair-bowserjrsm4sh": {
+    "title": "Bowser Jr. (SSB4)",
+    "background-position": "-2px -1392px",
+    "width": "14px",
+    "height": "18px"
+  },
+  "flair-bowserjrwendysm4sh": {
+    "title": "Wendy O. Koopa (SSB4)",
+    "background-position": "-1px -1431px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-bowsermelee": {
+    "title": "Bowser (SSBM)",
+    "background-position": "0 -1468px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-bowsersm4sh": {
+    "title": "Bowser (SSB4)",
+    "background-position": "0 -1505px",
+    "width": "17px",
+    "height": "18px"
+  },
+  "flair-charizardbrawl": {
+    "title": "Charizard (SSBB)",
+    "background-position": "0 -1543px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-charizardsm4sh": {
+    "title": "Charizard (SSB4)",
+    "background-position": "0 -1580px",
+    "width": "17px",
+    "height": "18px"
+  },
+  "flair-darkpitsm4sh": {
+    "title": "Dark Pit (SSB4)",
+    "background-position": "0 -1618px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-diddybrawl": {
+    "title": "Diddy Kong (SSBB)",
+    "background-position": "0 -1656px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-diddysm4sh": {
+    "title": "Diddy Kong (SSB4)",
+    "background-position": "-1px -1694px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-dk64": {
+    "title": "Donkey Kong (SSB64)",
+    "background-position": "0 -1731px",
+    "width": "14px",
+    "height": "16px"
+  },
+  "flair-dkbrawl": {
+    "title": "Donkey Kong (SSBB)",
+    "background-position": "0 -1767px",
+    "width": "14px",
+    "height": "17px"
+  },
+  "flair-dkmelee": {
+    "title": "Donkey Kong (SSBM)",
+    "background-position": "0 -1804px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-dksm4sh": {
+    "title": "Donkey Kong (SSB4)",
+    "background-position": "-1px -1841px",
+    "width": "15px",
+    "height": "18px"
+  },
+  "flair-drmariomelee": {
+    "title": "Dr. Mario (SSBM)",
+    "background-position": "0 -1879px",
+    "width": "15px",
+    "height": "17px"
+  },
+  "flair-drmariosm4sh": {
+    "title": "Dr. Mario (SSB4)",
+    "background-position": "-1px -1916px",
+    "width": "16px",
+    "height": "18px"
+  },
+  "flair-duckhuntsm4sh": {
+    "title": "Duck Hunt Duo (SSB4)",
+    "background-position": "-1px -1955px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-falcobrawl": {
+    "title": "Falco (SSBB)",
+    "background-position": "0 -1992px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-falcomelee": {
+    "title": "Falco (SSBM)",
+    "background-position": "0 -2029px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-falcon64": {
+    "title": "Captain Falcon (SSB64)",
+    "background-position": "0 -2066px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-falconbrawl": {
+    "title": "Captain Falcon (SSBB)",
+    "background-position": "0 -2102px",
+    "width": "14px",
+    "height": "17px"
+  },
+  "flair-falconmelee": {
+    "title": "Captain Falcon (SSBM)",
+    "background-position": "0 -2139px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-falconsm4sh": {
+    "title": "Captain Falcon (SSB4)",
+    "background-position": "-2px -2177px",
+    "width": "15px",
+    "height": "16px"
+  },
+  "flair-falcosm4sh": {
+    "title": "Falco (SSB4)",
+    "background-position": "-1px -2215px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-fox64": {
+    "title": "Fox (SSB64)",
+    "background-position": "0 -2252px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-foxbrawl": {
+    "title": "Fox (SSBB)",
+    "background-position": "0 -2289px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-foxmelee": {
+    "title": "Fox (SSBM)",
+    "background-position": "0 -2326px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-foxsm4sh": {
+    "title": "Fox (SSB4)",
+    "background-position": "-1px -2364px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-ganonbrawl": {
+    "title": "Ganondof (SSBB)",
+    "background-position": "0 -2401px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-ganonmelee": {
+    "title": "Ganondorf (SSBM)",
+    "background-position": "0 -2438px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-ganonsm4sh": {
+    "title": "Ganondorf (SSB4)",
+    "background-position": "-1px -2476px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-greninjasm4sh": {
+    "title": "Greninja (SSB4)",
+    "background-position": "0 -2513px",
+    "width": "18px",
+    "height": "18px"
+  },
+  "flair-gwbrawl": {
+    "title": "Game & Watch (SSBB)",
+    "background-position": "0 -2551px",
+    "width": "21px",
+    "height": "17px"
+  },
+  "flair-gwmelee": {
+    "title": "Game & Watch (SSBM)",
+    "background-position": "0 -2588px",
+    "width": "17px",
+    "height": "16px"
+  },
+  "flair-gwsm4sh": {
+    "title": "Game & Watch (SSB4)",
+    "background-position": "-1px -2627px",
+    "width": "16px",
+    "height": "14px"
+  },
+  "flair-icsbrawl": {
+    "title": "Ice Climbers (SSBB)",
+    "background-position": "0 -2662px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-icsmelee": {
+    "title": "Ice Climbers (SSBM)",
+    "background-position": "0 -2699px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-ikebrawl": {
+    "title": "Ike (SSBB)",
+    "background-position": "0 -2736px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-ikesm4sh": {
+    "title": "Ike (SSB4)",
+    "background-position": "-1px -2777px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-ivysaurbrawl": {
+    "title": "Ivysaur (SSBB)",
+    "background-position": "0 -2814px",
+    "width": "15px",
+    "height": "17px"
+  },
+  "flair-jigglypuff64": {
+    "title": "Jigglypuff (SSB4)",
+    "background-position": "0 -2851px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-jigglypuffbrawl": {
+    "title": "Jigglypuff (SSBB)",
+    "background-position": "0 -2887px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-jigglypuffmelee": {
+    "title": "Jigglypuff (SSBM)",
+    "background-position": "0 -2924px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-jigglypuffsm4sh": {
+    "title": "Jigglypuff (SSB4)",
+    "background-position": "-1px -2962px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-kingdededebrawl": {
+    "title": "King Dedede (SSBB)",
+    "background-position": "0 -2999px",
+    "width": "15px",
+    "height": "17px"
+  },
+  "flair-kingdededesm4sh": {
+    "title": "King Dedede (SSB4)",
+    "background-position": "-1px -3036px",
+    "width": "16px",
+    "height": "18px"
+  },
+  "flair-kirby64": {
+    "title": "Kirby (SSB64)",
+    "background-position": "0 -3074px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-kirbybrawl": {
+    "title": "Kirby (SSBB)",
+    "background-position": "0 -3110px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-kirbymelee": {
+    "title": "Kirby (SSBM)",
+    "background-position": "0 -3147px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-kirbysm4sh": {
+    "title": "Kirby (SSB4)",
+    "background-position": "-2px -3186px",
+    "width": "15px",
+    "height": "15px"
+  },
+  "flair-link64": {
+    "title": "Link (SSB64)",
+    "background-position": "0 -3222px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-linkbrawl": {
+    "title": "Link (SSBB)",
+    "background-position": "0 -3258px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-linkmelee": {
+    "title": "Link (SSBM)",
+    "background-position": "0 -3295px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-linksm4sh": {
+    "title": "Link (SSB4)",
+    "background-position": "0 -3333px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-littlemacsm4sh": {
+    "title": "Little Mac (SSB4)",
+    "background-position": "-1px -3370px",
+    "width": "17px",
+    "height": "18px"
+  },
+  "flair-lucariobrawl": {
+    "title": "Lucario (SSBB)",
+    "background-position": "0 -3408px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-lucariosm4sh": {
+    "title": "Lucario (SSB4)",
+    "background-position": "-1px -3445px",
+    "width": "16px",
+    "height": "18px"
+  },
+  "flair-lucasbrawl": {
+    "title": "Lucas (SSBB)",
+    "background-position": "0 -3483px",
+    "width": "13px",
+    "height": "17px"
+  },
+  "flair-lucassm4sh": {
+    "title": "Lucas (SSB4)",
+    "background-position": "-3px -3519px",
+    "width": "13px",
+    "height": "16px"
+  },
+  "flair-lucinasm4sh": {
+    "title": "Lucina (SSB4)",
+    "background-position": "0 -3557px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-luigi64": {
+    "title": "Luigi (SSB64)",
+    "background-position": "0 -3594px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-luigibrawl": {
+    "title": "Luigi (SSBB)",
+    "background-position": "0 -3630px",
+    "width": "13px",
+    "height": "17px"
+  },
+  "flair-luigimelee": {
+    "title": "Luigi (SSBM)",
+    "background-position": "0 -3667px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-luigism4sh": {
+    "title": "Luigi (SSB4)",
+    "background-position": "-2px -3704px",
+    "width": "15px",
+    "height": "18px"
+  },
+  "flair-mario64": {
+    "title": "Mario (SSB64)",
+    "background-position": "0 -3742px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-mariobrawl": {
+    "title": "Mario (SSBB)",
+    "background-position": "0 -3778px",
+    "width": "15px",
+    "height": "17px"
+  },
+  "flair-mariomelee": {
+    "title": "Mario (SSBM)",
+    "background-position": "0 -3815px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-mariosm4sh": {
+    "title": "Mario (SSB4)",
+    "background-position": "-1px -3853px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-marthbrawl": {
+    "title": "Marth (SSBB)",
+    "background-position": "0 -3890px",
+    "width": "14px",
+    "height": "17px"
+  },
+  "flair-marthmelee": {
+    "title": "Marth (SSBM)",
+    "background-position": "0 -3927px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-marthsm4sh": {
+    "title": "Marth (SSB4)",
+    "background-position": "-1px -3965px",
+    "width": "15px",
+    "height": "17px"
+  },
+  "flair-megamansm4sh": {
+    "title": "Mega Man (SSB4)",
+    "background-position": "-1px -4003px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-metaknightbrawl": {
+    "title": "Meta Knight (SSBB)",
+    "background-position": "0 -4040px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-metaknightsm4sh": {
+    "title": "Meta Knight (SSB4)",
+    "background-position": "-1px -4078px",
+    "width": "16px",
+    "height": "15px"
+  },
+  "flair-mewtwomelee": {
+    "title": "Mewtwo (SSBM)",
+    "background-position": "0 -4115px",
+    "width": "15px",
+    "height": "17px"
+  },
+  "flair-mewtwopm": {
+    "title": "Mewtwo (PM)",
+    "background-position": "0 -4152px",
+    "width": "18px",
+    "height": "20px"
+  },
+  "flair-mewtwosm4sh": {
+    "title": "Mewtwo (SSB4)",
+    "background-position": "0 -4192px",
+    "width": "18px",
+    "height": "18px"
+  },
+  "flair-miibrawlersm4sh": {
+    "title": "Mii Brawler (SSB4)",
+    "background-position": "-1px -4231px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-miifighters": {
+    "title": "Mii Fighters (SSB4)",
+    "background-position": "0 -4268px",
+    "width": "24px",
+    "height": "24px"
+  },
+  "flair-miigunnersm4sh": {
+    "title": "Mii Gunner (SSB4)",
+    "background-position": "0 -4313px",
+    "width": "18px",
+    "height": "16px"
+  },
+  "flair-miiswordsm4sh": {
+    "title": "Mii Swordfighter (SSB4)",
+    "background-position": "0 -4350px",
+    "width": "18px",
+    "height": "18px"
+  },
+  "flair-ness64": {
+    "title": "Ness (SSB64)",
+    "background-position": "0 -4388px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-nessbrawl": {
+    "title": "Ness (SSBB)",
+    "background-position": "0 -4424px",
+    "width": "18px",
+    "height": "17px"
+  },
+  "flair-nessmelee": {
+    "title": "Ness (SSBM)",
+    "background-position": "0 -4461px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-nesssm4sh": {
+    "title": "Ness (SSB4)",
+    "background-position": "0 -4499px",
+    "width": "17px",
+    "height": "16px"
+  },
+  "flair-olimaralphsm4sh": {
+    "title": "Olimar/Alph (SSB4)",
+    "background-position": "0 -4536px",
+    "width": "18px",
+    "height": "18px"
+  },
+  "flair-olimarbrawl": {
+    "title": "Olimar (SSBB)",
+    "background-position": "0 -4574px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-olimarsm4sh": {
+    "title": "Olimar (SSB4)",
+    "background-position": "0 -4611px",
+    "width": "18px",
+    "height": "18px"
+  },
+  "flair-pacmansm4sh": {
+    "title": "Pac Man (SSB4)",
+    "background-position": "-1px -4649px",
+    "width": "16px",
+    "height": "18px"
+  },
+  "flair-palutenasm4sh": {
+    "title": "Palutena (SSB4)",
+    "background-position": "-1px -4688px",
+    "width": "17px",
+    "height": "16px"
+  },
+  "flair-peachbrawl": {
+    "title": "Peach (SSBB)",
+    "background-position": "0 -4725px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-peachmelee": {
+    "title": "Peach (SSBM)",
+    "background-position": "0 -4762px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-peachsm4sh": {
+    "title": "Peach (SSB4)",
+    "background-position": "0 -4799px",
+    "width": "18px",
+    "height": "18px"
+  },
+  "flair-pichumelee": {
+    "title": "Pichu (SSBM)",
+    "background-position": "0 -4837px",
+    "width": "19px",
+    "height": "17px"
+  },
+  "flair-pikachu64": {
+    "title": "Pikachu (SSB64)",
+    "background-position": "0 -4874px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-pikachubrawl": {
+    "title": "Pikachu (SSBB)",
+    "background-position": "0 -4911px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-pikachumelee": {
+    "title": "Pikachu (SSBM)",
+    "background-position": "0 -4948px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-pikachusm4sh": {
+    "title": "Pikachu (SSB4)",
+    "background-position": "0 -4987px",
+    "width": "18px",
+    "height": "16px"
+  },
+  "flair-pitbrawl": {
+    "title": "Pit (SSBB)",
+    "background-position": "0 -5023px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-pitsm4sh": {
+    "title": "Pit (SSB4)",
+    "background-position": "0 -5061px",
+    "width": "18px",
+    "height": "17px"
+  },
+  "flair-pokemontrainerbrawl": {
+    "title": "Pokémon Trainer (SSBB)",
+    "background-position": "0 -5098px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-randombrawl": {
+    "title": "Random",
+    "background-position": "0 -5135px",
+    "width": "13px",
+    "height": "17px"
+  },
+  "flair-robbrawl": {
+    "title": "R.O.B. (SSBB)",
+    "background-position": "0 -5172px",
+    "width": "20px",
+    "height": "17px"
+  },
+  "flair-robinfemalesm4sh": {
+    "title": "Female Robin (SSB4)",
+    "background-position": "-1px -5210px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-robinmalesm4sh": {
+    "title": "Male Robin (SSB4)",
+    "background-position": "-1px -5248px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-robsm4sh": {
+    "title": "R.O.B. (SSB4)",
+    "background-position": "-1px -5287px",
+    "width": "17px",
+    "height": "14px"
+  },
+  "flair-rosalinasm4sh": {
+    "title": "Rosalina (SSB4)",
+    "background-position": "-1px -5323px",
+    "width": "17px",
+    "height": "18px"
+  },
+  "flair-roymelee": {
+    "title": "Roy (SSBM)",
+    "background-position": "0 -5361px",
+    "width": "18px",
+    "height": "17px"
+  },
+  "flair-roypm": {
+    "title": "Roy (PM)",
+    "background-position": "0 -5398px",
+    "width": "20px",
+    "height": "20px"
+  },
+  "flair-roysm4sh": {
+    "title": "Roy (SSB4)",
+    "background-position": "0 -5438px",
+    "width": "18px",
+    "height": "16px"
+  },
+  "flair-ryusm4sh": {
+    "title": "Ryu (SSB4)",
+    "background-position": "0 -5474px",
+    "width": "18px",
+    "height": "18px"
+  },
+  "flair-samus64": {
+    "title": "Samus (SSB64)",
+    "background-position": "0 -5511px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-samusbrawl": {
+    "title": "Samus (SSBB)",
+    "background-position": "0 -5547px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-samusmelee": {
+    "title": "Samus (SSBM)",
+    "background-position": "0 -5584px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-samussm4sh": {
+    "title": "Samus (SSB4)",
+    "background-position": "-1px -5622px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-sheikbrawl": {
+    "title": "Sheik (SSBB)",
+    "background-position": "0 -5659px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-sheikmelee": {
+    "title": "Sheik (SSBM)",
+    "background-position": "0 -5696px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-sheiksm4sh": {
+    "title": "Sheik (SSB4)",
+    "background-position": "-2px -5733px",
+    "width": "15px",
+    "height": "18px"
+  },
+  "flair-shulksm4sh": {
+    "title": "Shulk (SSB4)",
+    "background-position": "-1px -5771px",
+    "width": "16px",
+    "height": "18px"
+  },
+  "flair-snakebrawl": {
+    "title": "Snake (SSBB)",
+    "background-position": "0 -5809px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-sonicbrawl": {
+    "title": "Sonic (SSBB)",
+    "background-position": "0 -5846px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-sonicsm4sh": {
+    "title": "Sonic (SSB4)",
+    "background-position": "0 -5884px",
+    "width": "18px",
+    "height": "16px"
+  },
+  "flair-squirtlebrawl": {
+    "title": "Squirtle (SSBB)",
+    "background-position": "0 -5921px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-toonlinkbrawl": {
+    "title": "Toon Link (SSBB)",
+    "background-position": "0 -5958px",
+    "width": "18px",
+    "height": "17px"
+  },
+  "flair-toonlinksm4sh": {
+    "title": "Toon Link (SSB4)",
+    "background-position": "0 -5996px",
+    "width": "18px",
+    "height": "16px"
+  },
+  "flair-villagerfemalesm4sh": {
+    "title": "Female Villager (SSB4)",
+    "background-position": "0 -6034px",
+    "width": "18px",
+    "height": "16px"
+  },
+  "flair-villagermalesm4sh": {
+    "title": "Male Villager (SSB4)",
+    "background-position": "-1px -6073px",
+    "width": "17px",
+    "height": "15px"
+  },
+  "flair-wariobikebrawl": {
+    "title": "Wario Biker (SSBB)",
+    "background-position": "0 -6109px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-wariobrawl": {
+    "title": "Wario (SSBB)",
+    "background-position": "0 -6146px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-wariosm4sh": {
+    "title": "Wario (SSB4)",
+    "background-position": "-1px -6183px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-wariobikesm4sh": {
+    "title": "Wario Biker (SSB4)",
+    "background-position": "-1px -6221px",
+    "width": "16px",
+    "height": "18px"
+  },
+  "flair-wiifitfemalesm4sh": {
+    "title": "Female Wii Fit Trainer (SSB4)",
+    "background-position": "-2px -6260px",
+    "width": "14px",
+    "height": "17px"
+  },
+  "flair-wiifitmalesm4sh": {
+    "title": "Male Wii Fit Trainer (SSB4)",
+    "background-position": "-2px -6298px",
+    "width": "14px",
+    "height": "17px"
+  },
+  "flair-wolfbrawl": {
+    "title": "Wolf (SSBB)",
+    "background-position": "0 -6335px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-yoshi64": {
+    "title": "Yoshi (SSB64)",
+    "background-position": "0 -6372px",
+    "width": "16px",
+    "height": "16px"
+  },
+  "flair-yoshibrawl": {
+    "title": "Yoshi (SSBB)",
+    "background-position": "0 -6408px",
+    "width": "20px",
+    "height": "17px"
+  },
+  "flair-yoshimelee": {
+    "title": "Yoshi (SSBM)",
+    "background-position": "0 -6445px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-yoshism4sh": {
+    "title": "Yoshi (SSB4)",
+    "background-position": "0 -6483px",
+    "width": "18px",
+    "height": "16px"
+  },
+  "flair-younglinkmelee": {
+    "title": "Young Link (SSBM)",
+    "background-position": "0 -6520px",
+    "width": "18px",
+    "height": "17px"
+  },
+  "flair-zeldabrawl": {
+    "title": "Zelda (SSBB)",
+    "background-position": "0 -6557px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-zeldamelee": {
+    "title": "Zelda (SSBM)",
+    "background-position": "0 -6594px",
+    "width": "17px",
+    "height": "17px"
+  },
+  "flair-zeldasm4sh": {
+    "title": "Zelda (SSB4)",
+    "background-position": "0 -6631px",
+    "width": "18px",
+    "height": "17px"
+  },
+  "flair-zssbrawl": {
+    "title": "Zero Suit Samus (SSBB)",
+    "background-position": "0 -6669px",
+    "width": "16px",
+    "height": "17px"
+  },
+  "flair-zsssm4sh": {
+    "title": "Zero Suit Samus (SSB4)",
+    "background-position": "-1px -6706px",
+    "width": "16px",
+    "height": "18px"
+  }
+}
