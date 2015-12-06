@@ -15,6 +15,9 @@ RUN npm -g install npm@latest
 # Install nodemon
 RUN npm install -g nodemon
 
+# Set PORT environment variable
+ENV PORT 8080
+
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install
