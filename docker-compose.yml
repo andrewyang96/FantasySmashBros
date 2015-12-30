@@ -9,10 +9,24 @@ client1:
     build: ./client
     ports:
         - "8080"
+    links:
+        - gateway
 client2:
     build: ./client
     ports:
         - "8080"
+    links:
+        - gateway
+gateway:
+    build: ./gateway
+    ports:
+        - "4747:4747"
+    links:
+        - scoring:scoring
+scoring:
+    build: ./scoring
+    ports:
+        - "5000"
 database:
     image: mongo
     ports:
