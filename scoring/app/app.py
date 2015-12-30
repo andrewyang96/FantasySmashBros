@@ -13,6 +13,7 @@ def info():
 		<li><tt>resultmultiplier</tt>: calculate result multiplier given a <tt>place</tt> querystring parameter; must be greater than 0</li>
 		<li><tt>score</tt>: calculate score given valid <tt>proportion</tt> and <tt>place</tt> querystring parameters</li>
 		<li><tt>table</tt>: generate CSV table of scores resulting from different maxScore-resultMultiplier combinations</li>
+		<li><tt>scorespread</tt>: generate score spread given a <tt>proportion</tt> querystring parameter; must be in interval [0,1]</li>
 		</ul>
 		'''
 	)
@@ -68,6 +69,20 @@ def generateCSVScoreTable():
 		responseString += (','.join([str(pr)] + map(str, row)) + '\n')
 	print responseString
 	return responseString, 200, {'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'inline'}
+
+MULTIPLIERS = map(resultMultiplierFunc, [1,2,3,4,5,7,9,13,17,25])
+
+@app.route('/scorespread')
+def generateScoreSpread():
+	try:
+		proportion = float(request.args['proportion'])
+		if 0.0 <= proportion <= 1.0:
+			maxScore = maxScoreFunc(proportion)
+			return jsonify({ 'scoreSpread' : [round(maxScore*multiplier, 1) for multiplier in MULTIPLIERS] })
+		else:
+			return make_response('proportion is not in interval [0,1]', 400)
+	except (KeyError, ValueError):
+		return make_response('proportion parameter missing or malformed', 400)
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000)
