@@ -70,4 +70,4 @@ def generateCSVScoreTable():
 	return responseString, 200, {'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'inline'}
 
 if __name__ == '__main__':
-	app.run()
+	app.run(host='0.0.0.0', port=5000)
