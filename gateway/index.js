@@ -2,6 +2,13 @@ var express = require('express');
 var app = express();
 var request = require('request');
 
+app.use(function(req, res, next) {
+	// Enable CORS
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
 app.get('/', function (req, res) {
     res.send('Fantasy Smash Bros API Gateway');
 });
