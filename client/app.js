@@ -5,9 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var auth = require('./routes/auth');
-
 var app = express();
 
 // view engine setup
@@ -22,15 +19,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/auth', auth);
+// Session config
+var session = require('express-session');
+app.use(session({ secret: 'fantasy-smash-bros', resave: false, saveUninitialized: false }));
 
-// Passport.js middleware config config
+// Passport.js middleware config
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var User = require('./models/user');
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Passport-local config to use User model
+var LocalStrategy = require('passport-local').Strategy;
+var User = require('./models/user');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -39,6 +39,12 @@ passport.deserializeUser(User.deserializeUser());
 var mongoose = require('mongoose');
 var databaseAddr = process.env.DATABASEADDR || 'localhost';
 mongoose.connect("mongodb://" + databaseAddr + ":27017/fantasy-smash-bros");
+
+// Routes
+var routes = require('./routes/index');
+var auth = require('./routes/auth');
+app.use('/', routes);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
