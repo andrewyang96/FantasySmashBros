@@ -41,12 +41,11 @@ router.post('/register', function (req, res) {
 						username: req.body.username
 					}), req.body.password, function (err, account) {
 						if (err) {
-							console.log(err);
+							// console.log(err);
 							res.status(500).send("Error registering account");
 						} else {
 							// Success
-							// res.redirect('/');
-							res.send('logged in successfully');
+							res.redirect('/dashboard');
 						}
 					});
 				} else {
@@ -57,8 +56,7 @@ router.post('/register', function (req, res) {
 			}
 		} else {
 			var errorCodes = response['error-codes'];
-			console.log(errorCodes);
-			res.status(400).send("User registration failed.");
+			res.status(400).send("User registration failed: " + errorCodes);
 		}
 	});
 });
@@ -66,7 +64,6 @@ router.post('/register', function (req, res) {
 // LOGIN a user
 router.post('/login', passport.authenticate('local'), function (req, res) {
 	// req.user contains user information
-	console.log(req.user);
 	res.redirect('/dashboard');
 });
 
