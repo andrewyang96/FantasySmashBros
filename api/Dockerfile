@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu
 
 # Install Go
 RUN \
@@ -19,6 +19,7 @@ ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 
 # Define working directory.
 WORKDIR /gopath
+ADD . /gopath/fantasy-smash-bros-api
 
 # Define default command.
 CMD ["bash"]
