@@ -25,7 +25,7 @@ WORKDIR /src
 ADD . /src
 
 # Expose port
-EXPOSE  4747
+EXPOSE  4748
 
 # Run app using nodemon
 CMD ["nodemon", "/src/index.js"]
