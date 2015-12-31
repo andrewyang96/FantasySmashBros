@@ -24,7 +24,29 @@ app.get('/*/*', function (req, res, next) {
 		var destPort = availableApis[whichApi];
 		request.get({
 			url: "http://" + whichApi + ":" + destPort + "/" + path,
-			qs: req.query
+			qs: req.query,
+			body: req.body
+		}, function (err, response, body) {
+			if (err) {
+				res.status(500).send(err);
+			} else {
+				res.status(response.statusCode).send(body);
+			}
+		});
+	} else {
+		next();
+	}
+});
+
+app.post('/*/*', function (req, res, next) {
+	var whichApi = req.params[0];
+	if (whichApi in availableApis) {
+		var path = req.params[1];
+		var destPort = availableApis[whichApi];
+		request.post({
+			url: "http://" + whichApi + ":" + destPort + "/" + path,
+			qs: req.query,
+			body: req.body
 		}, function (err, response, body) {
 			if (err) {
 				res.status(500).send(err);

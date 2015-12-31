@@ -35,64 +35,6 @@ $(document).ready(function () {
         });
     });
 
-    // Setup x-editable radiolist for flair selection
-    $("#registrationFlair").editable({
-        value: "flair-smashlogo",
-        showbuttons: "bottom",
-        source: "/api/flairs?xeditable=1",
-        display: function (value, sourceData) {
-            // Manipulate x-editable link to use image
-            var selected = sourceData.filter(function (item) {return item.value == value})[0];
-            var newHTML = '<span title="' + selected.text + '" class="flair ' + value + '"></span>';
-            // Also add hidden input field
-            newHTML += '<input name="flair" value="' + value + '" style="display:none" />';
-            $(this).html(newHTML);
-        }
-    });
-    
-    // Manipulate x-editable popup to use image
-    $("#registrationFlair").click(function () {
-        var labels = $(".editable-radiolist > label");
-        var labelsCount = labels.length;
-        for (var i = 0; i < labelsCount; i++) {
-            var value = $(labels[i]).find("input").val();
-            var span = $(labels[i]).find("span")
-            var text = span.text();
-            var newHTML = '<span title="' + text + '" class="flair ' + value + '"></span>';
-            $(labels[i]).append(newHTML);
-            span.css({"display": "none"});
-        }
-        // Set offset of x-editable popup to the selection offset
-        var offset = $("#registrationFlair").offset();
-        var popupHeight = $(".editable-popup").height() + 10;
-        offset.top -= popupHeight;
-        offset.left -= ($(".editable-popup > .arrow").position().left - 10);
-        $(".editable-popup").offset(offset);
-    });
-    
-    // On signin form submit
-    $("#signin-view > form").submit(function (event) {
-        event.preventDefault();
-        console.log("Trying to sign in!");
-        var email = $(this).find("input[name=email]").val();
-        var password = $(this).find("input[name=password]").val();
-        var rememberMe = $(this).find("input[name=rememberMe]").get(0).checked;
-        // Authenticate here
-        ref.authWithPassword({
-            email: email,
-            password: password
-        }, function (error, authData) {
-            if (error) {
-                alert("Login failed!");
-            } else {
-                // Set authData cookie
-                Cookies.set("authData", authData);
-                // Redirect to dashboard
-                window.location.pathname = "/play";
-            }
-        });
-    });
-
     $("#forgot-password-view > form").submit(function (event) {
         event.preventDefault();
         console.log("Forgot password!");

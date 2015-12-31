@@ -27,14 +27,6 @@ body {
     color: #CCFFFF;
 }
 
-.flair {
-    display: inline-block;
-    background-image: url("/images/flairs.png");
-    background-repeat: no-repeat;
-    vertical-align: middle;
-    background-color: transparent;
-}
-
 .footer {
     padding-top: 1em;
     background: #D3D3D3;
@@ -93,33 +85,4 @@ body {
 .back-btn:hover {
     border: 2px solid #d3d3d3;
     color: #d3d3d3;
-}
-
-.editable-container {
-    
-}
-
-.editable-radiolist {
-    color: black;
-    width: 660px;
-}
-
-.editable-buttons {
-    text-align: center;
-}
-
-.editable-radiolist input[type="radio"] {
-    display: none;
-}
-
-.editable-radiolist input[type="radio"] + span + .flair {
-    padding: 10px;
-}
-
-.editable-radiolist input[type="radio"]:checked + span + .flair {
-    border: 2px solid green;
-}
-
-.editable-radiolist label {
-    margin: 6px;
 }

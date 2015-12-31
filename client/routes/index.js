@@ -7,25 +7,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/login', function (req, res) {
-	if (req.cookies.authData) {
-		var token = JSON.parse(req.cookies.authData).token;
-		ref.authWithCustomToken(token, function (error, authData) {
-			if (error) {
-				// Remove cookie
-				res.writeHead(200, { "Set-Cookie": "authData=null; expires=Thu, 01 Jan 1970 00:00:00 GMT" });
-				res.render('login', { title: "Fantasy Smash Bros Login" });
-			} else {
-				// Redirect to dashboard
-				res.redirect('/play');
-			}
-		});
-	} else {
-		res.render('login', { title: "Fantasy Smash Bros Login" });
-	}
-});
-
-router.get('/flairs', function (req, res) {
-	res.render('flairs', { title: "Fantasy Smash Bros Flairs" });
+	res.render('login', { title: "Fantasy Smash Bros Login" });
 });
 
 router.get('/calculator', function (req, res) {

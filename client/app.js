@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var auth = require('./routes/auth');
 
 var app = express();
 
@@ -23,7 +23,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/auth', auth);
+
+// Passport.js middleware config config
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var User = require('./models/user');
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// Mongoose connection
+var mongoose = require('mongoose');
+var databaseAddr = process.env.DATABASEADDR || 'localhost';
+mongoose.connect("mongodb://" + databaseAddr + ":27017/fantasy-smash-bros");
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

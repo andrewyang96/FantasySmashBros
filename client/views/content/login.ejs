@@ -3,7 +3,7 @@
         <div class="form-signin frosting">
             <!-- Sign in screen -->
             <div id="signin-view">
-                <form>
+                <form method="post" action="/auth/login">
                     <h2 class="form-signin-heading">Please sign in</h2>
                     
                     <label for="inputEmail" class="sr-only">Email address</label>
@@ -27,7 +27,7 @@
             
             <!-- Registration screen -->
             <div id="registration-view" style="display:none">
-                <form method="post" action="/api/users">
+                <form method="post" action="/auth/register">
                     <div class="text-left">
                         <span class="glyphicon glyphicon-arrow-left back-btn" id="btn-cancel-registration"></span>
                     </div>
@@ -53,15 +53,6 @@
                         <input id="registrationConfirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required="" type="password" />
                     </div>
                     
-                    <div class="form-group row">
-                        <div class="col-xs-5">
-                            <label for="registrationFlair"><big>Flair Selection</big></label>
-                        </div>
-                        <div class="col-xs-7">
-                            <a href="#" id="registrationFlair" data-type="radiolist" data-name="flair" data-title="Select Flair" class="pull-left"></a>
-                        </div>
-                    </div>
-
                     <div class="checkbox text-left">
                         <label>
                             <input name="agree" type="checkbox" required /> I agree to the <a target="_blank" href="/terms">Terms and Conditions</a>.

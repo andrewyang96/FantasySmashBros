@@ -27,7 +27,19 @@ BGImage.prototype.switchImg = function (thisObj) {
     });
 };
 
+function preloadBGImages() {
+    var images = new Array(BGIMAGES.length);
+    for (var i = 0; i < BGIMAGES.length; i++) {
+        images[i] = new Image();
+        images[i].src = BGIMAGES[i];
+    }
+    return images;
+}
+
 $(document).ready(function () {
+    // Preload images
+    var preloaded = preloadBGImages();
+
     // Setup background image animations
     var bgi = new BGImage(BGIMAGES);
     setInterval(function () { bgi.switchImg(bgi.thisObj()); }, 5000);
