@@ -18,6 +18,7 @@ client2:
         - "8080"
     links:
         - gateway
+        - database:database
 gateway:
     build: ./gateway
     ports:
