@@ -9,16 +9,18 @@ $("#calculator").submit(function (event) {
     // Render score spread
     $("#percent").html(percent);
     
-    $.get("http://localhost:4747/scoring/scorespread?proportion=" + proportion, function (data) {
+    $.get("/api/scoring/scorespread?proportion=" + proportion, function (data) {
         var spread = JSON.parse(data).scoreSpread;
 
-        if (place <= 32) {
-            for (var i = 0; i < PLACES.length; i++) {
-                if (PLACES[i] >= place) {
+        if (place < PLACES[PLACES.length-1]) {
+            for (var i = 0; i < PLACES.length-1; i++) {
+                if (PLACES[i] <= place && place < PLACES[i+1]) {
                     $("#score").html(spread[i]);
                     break;
                 }
             }
+        } else if (place <= 32) {
+            $("#score").html(spread[spread.length-1]);
         } else {
             $("#score").html(0);
         }
