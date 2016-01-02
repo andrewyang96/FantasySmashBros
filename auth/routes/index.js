@@ -61,14 +61,6 @@ router.post('/register', function (req, res) {
 	});
 });
 
-router.post('*', function (req, res, next) {
-	console.log('login POST headers:');
-	console.log(req.headers);
-	console.log('login POST request:');
-	console.log(req.body);
-	next();
-});
-
 // LOGIN a user
 router.post('/login', passport.authenticate('local'), function (req, res) {
 	// req.user contains user information

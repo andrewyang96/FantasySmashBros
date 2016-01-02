@@ -33,6 +33,7 @@ router.get('/contact', function (req, res) {
 
 router.get('/dashboard', function (req, res) {
 	// TODO: must be logged in
+	console.log(req.user);
 	res.render('dashboard', { title: "Fantasy Smash Bros Dashboard", user: req.user, dashboard: true });
 });
 
