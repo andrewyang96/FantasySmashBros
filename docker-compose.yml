@@ -3,47 +3,45 @@ nginx:
     links:
         - client1:client1
         - client2:client2
+        - gateway1:gateway1
+        - gateway2:gateway2
     ports:
         - "80:80"
+
 client1:
     build: ./client
     ports:
         - "8080"
-    links:
-        - loadbalancer
-        - database:database
 client2:
     build: ./client
     ports:
         - "8080"
-    links:
-        - loadbalancer
-        - database:database
 
-loadbalancer:
-    build: ./loadbalancer
-    links:
-        - gateway1:gateway1
-        - gateway2:gateway2
-    ports:
-        - "4747:4747"
 gateway1:
     build: ./gateway
     ports:
-        - "4748"
+        - "4747"
     links:
         - scoring:scoring
+        - auth:auth
 gateway2:
     build: ./gateway
     ports:
-        - "4748"
+        - "4747"
     links:
         - scoring:scoring
+        - auth:auth
 
 scoring:
     build: ./scoring
     ports:
         - "5000"
+auth:
+    build: ./auth
+    ports:
+        - "3000"
+    links:
+        - database:database
 
 database:
     image: mongo

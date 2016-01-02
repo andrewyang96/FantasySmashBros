@@ -14,10 +14,11 @@ app.get('/', function (req, res) {
 });
 
 var availableApis = {
-	'scoring': 5000
+	'scoring': 5000,
+	'auth': 3000
 };
 
-app.get('/*/*', function (req, res, next) {
+app.get('/api/*/*', function (req, res, next) {
 	var whichApi = req.params[0];
 	if (whichApi in availableApis) {
 		var path = req.params[1];
@@ -38,7 +39,7 @@ app.get('/*/*', function (req, res, next) {
 	}
 });
 
-app.post('/*/*', function (req, res, next) {
+app.post('/api/*/*', function (req, res, next) {
 	var whichApi = req.params[0];
 	if (whichApi in availableApis) {
 		var path = req.params[1];
@@ -59,7 +60,7 @@ app.post('/*/*', function (req, res, next) {
 	}
 });
 
-var server = app.listen(4748, function () {
+var server = app.listen(4747, function () {
     var host = server.address().address;
     var port = server.address().port;
     console.log("API gateway Listening at http://%s:%s", host, port);

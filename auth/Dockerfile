@@ -15,6 +15,10 @@ RUN npm -g install npm@latest
 # Install nodemon
 RUN npm install -g nodemon
 
+# Set PORT environment variable
+ENV PORT 3000
+ENV DATABASEADDR database
+
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install
@@ -25,7 +29,7 @@ WORKDIR /src
 ADD . /src
 
 # Expose port
-EXPOSE  4747
+EXPOSE  3000
 
 # Run app using nodemon
-CMD ["nodemon", "/src/index.js"]
+CMD ["nodemon", "/src/app.js"]
