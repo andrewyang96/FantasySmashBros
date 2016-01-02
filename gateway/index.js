@@ -2,6 +2,12 @@ var express = require('express');
 var app = express();
 var request = require('request');
 
+// Configure cookie parser and body parser
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+app.use(bodyParser.raw({type: '*/*'}));
+app.use(cookieParser());
+
 app.use(function(req, res, next) {
 	// Enable CORS
 	res.header("Access-Control-Allow-Origin", "*");
@@ -26,7 +32,7 @@ app.get('/api/*/*', function (req, res, next) {
 		request.get({
 			url: "http://" + whichApi + ":" + destPort + "/" + path,
 			qs: req.query,
-			body: req.body
+			headers: req.headers
 		}, function (err, response, body) {
 			if (err) {
 				res.status(500).send(err);
@@ -47,7 +53,8 @@ app.post('/api/*/*', function (req, res, next) {
 		request.post({
 			url: "http://" + whichApi + ":" + destPort + "/" + path,
 			qs: req.query,
-			body: req.body
+			body: req.body,
+			headers: req.headers
 		}, function (err, response, body) {
 			if (err) {
 				res.status(500).send(err);

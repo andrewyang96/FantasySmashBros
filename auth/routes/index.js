@@ -72,8 +72,7 @@ router.post('*', function (req, res, next) {
 // LOGIN a user
 router.post('/login', passport.authenticate('local'), function (req, res) {
 	// req.user contains user information
-	res.send('logged in');
-	// res.redirect('/dashboard');
+	res.redirect('/dashboard');
 });
 
 // LOGOUT a user
