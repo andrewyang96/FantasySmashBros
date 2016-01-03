@@ -21,7 +21,8 @@ app.get('/', function (req, res) {
 
 var availableApis = {
 	'scoring': 5000,
-	'auth': 3000
+	'auth': 3000,
+	'main': 8000
 };
 
 app.get('/api/*/*', function (req, res, next) {

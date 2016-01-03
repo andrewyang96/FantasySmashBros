@@ -24,6 +24,7 @@ gateway1:
     links:
         - scoring:scoring
         - auth:auth
+        - main:main
 gateway2:
     build: ./gateway
     ports:
@@ -31,6 +32,7 @@ gateway2:
     links:
         - scoring:scoring
         - auth:auth
+        - main:main
 
 scoring:
     build: ./scoring
@@ -40,6 +42,12 @@ auth:
     build: ./auth
     ports:
         - "3000"
+    links:
+        - database:database
+main:
+    build: ./main
+    ports:
+        - "8000"
     links:
         - database:database
 

@@ -1,0 +1,16 @@
+{
+  "name": "fantasy-smash-bros-server-sent-events",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Yang",
+  "license": "ISC",
+  "dependencies": {
+    "eventsource": "^0.1.6",
+    "express": "^4.13.3",
+    "sse": "0.0.6"
+  }
+}
