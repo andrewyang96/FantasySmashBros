@@ -56,7 +56,7 @@ router.post('/register', function (req, res) {
 							res.json({success: false, message: message});
 						} else {
 							// Success
-							res.json({success: true, 'Location': '/'});
+							res.json({success: true, 'Location': '/login'});
 						}
 					});
 				} else {
@@ -77,7 +77,10 @@ router.post('/login', function (req, res, next) {
 	passport.authenticate('local', { session: false }, function (err, user, info) {
 		if (err) return next(err);
 		if (!user) return res.json({success: false, message: 'Incorrect credentials'});
-		jwt.sign({username: user.username}, config.jwtSecret, {expiresIn: config.jwtExpire}, function (token) {
+		jwt.sign({username: user.username}, config.jwtSecret, {
+			expiresIn: config.jwtExpire,
+			subject: user.email
+		}, function (token) {
 			// Success
 			res.json({success: true, token: token, 'Location': '/dashboard'});
 		});
@@ -89,7 +92,8 @@ router.get('/logout', function (req, res) {
 	res.send(
 		"<p>Redirecting to <a href='/'>/</a>" + 
 		"<script>" + 
-		"localStorage.removeItem('token');" + 
+		"document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC';" + // <-- doesn't work?
+		"window.localStorage.removeItem('token');" + 
 		"window.location.pathname = '/';" + 
 		"</script>"
 	);
@@ -98,16 +102,6 @@ router.get('/logout', function (req, res) {
 // SEND forgot password email
 router.post('/forgotpassword', function (req, res) {
 	res.send('forgot password');
-});
-
-// VALIDATE JSON Web token
-router.get('/validatetoken', function (req, res) {
-	var token = req.query.token;
-	if (!token) res.json({valid:false});
-	jwt.verify(token, config.jwtSecret, function (err, decoded) {
-		if (err) return res.json({valid:false});
-		res.json({valid:true, decoded:decoded});
-	});
 });
 
 module.exports = router;

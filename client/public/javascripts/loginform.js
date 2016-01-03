@@ -41,4 +41,35 @@ $(document).ready(function () {
         var email = $(this).find("input[name=email]").val();
         console.log("Email Address:", email);
     });
+
+    // Handle form submissions
+    $("#signin-view > form").submit(function (event) {
+        event.preventDefault();
+        $.post('/api/auth/login', $(this).serialize(), function (data) {
+            var response = JSON.parse(data);
+            if (response.success) {
+                // Successful login
+                window.localStorage.setItem('token', response.token);
+                document.cookie = 'token=' + response.token;
+                window.location.pathname = response.Location;
+            } else {
+                alert(response.message);
+            }
+        });
+    });
+
+    // Handle registration
+    $("#registration-view > form").submit(function (event) {
+        event.preventDefault();
+        $.post('/api/auth/register', $(this).serialize(), function (data) {
+            var response = JSON.parse(data);
+            if (response.success) {
+                // Successful registration
+                alert("You've successfully registered! Please check your email to verify your account!");
+                window.location.pathname = response.Location;
+            } else {
+                alert(response.message);
+            }
+        });
+    });
 });
