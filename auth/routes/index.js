@@ -53,21 +53,21 @@ router.post('/register', function (req, res) {
 							} else {
 								message = err.message;
 							}
-							res.status(500).send("Error: " + message);
+							res.json({success: false, message: message});
 						} else {
 							// Success
-							res.redirect('/');
+							res.json({success: true, 'Location': '/'});
 						}
 					});
 				} else {
-					res.status(400).send("Username must be specified.");
+					res.json({success: false, message: "Username must be specified."});
 				}
 			} else {
-				res.status(400).send("The agree checkbox wasn't checked.");
+				res.json({success: false, message: "The agree checkbox wasn't checked."});
 			}
 		} else {
 			var errorCodes = response['error-codes'];
-			res.status(400).send("User registration failed: " + errorCodes);
+			res.json({success: false, message: "Recaptcha check error: " + errorCodes});
 		}
 	});
 });
@@ -76,17 +76,23 @@ router.post('/register', function (req, res) {
 router.post('/login', function (req, res, next) {
 	passport.authenticate('local', { session: false }, function (err, user, info) {
 		if (err) return next(err);
-		if (!user) return res.status(400).send('Error: User not found');
+		if (!user) return res.json({success: false, message: 'Incorrect credentials'});
 		jwt.sign({username: user.username}, config.jwtSecret, {expiresIn: config.jwtExpire}, function (token) {
 			// Success
-			res.json({token: token, 'Location': '/dashboard'});
+			res.json({success: true, token: token, 'Location': '/dashboard'});
 		});
 	})(req, res, next);
 });
 
 // LOGOUT a user
 router.get('/logout', function (req, res) {
-	res.json({'Location': '/'});
+	res.send(
+		"<p>Redirecting to <a href='/'>/</a>" + 
+		"<script>" + 
+		"localStorage.removeItem('token');" + 
+		"window.location.pathname = '/';" + 
+		"</script>"
+	);
 });
 
 // SEND forgot password email
