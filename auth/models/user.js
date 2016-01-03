@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var userSchema = new Schema({
-	email: {type: String, required: true, validate: [validator.isEmail, 'Invalid email']},
+	email: {type: String, required: true, unique: true, validate: [validator.isEmail, 'Invalid email']},
 	verified: {type: Boolean, default: false},
 	banned: {type: Boolean, default: false}
 });
