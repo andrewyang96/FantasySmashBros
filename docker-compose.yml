@@ -44,12 +44,10 @@ auth:
         - "3000"
     links:
         - database:database
-main:
-    build: ./main
+jwt:
+    build: ./jwt
     ports:
-        - "8000"
-    links:
-        - database:database
+        - "5987"
 
 database:
     image: mongo

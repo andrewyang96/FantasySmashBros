@@ -1,0 +1,4 @@
+{
+	"JwtSecret": "INSERT_SECRET_HERE",
+	"JwtExpireInMinutes": 5
+}

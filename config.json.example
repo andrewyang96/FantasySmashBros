@@ -1,5 +1,0 @@
-{
-	"jwtSecret": "INSERT_SECRET_HERE",
-	"jwtExpire": "5m",
-	"recaptchaSecret": "INSERT_SECRET_HERE"
-}
