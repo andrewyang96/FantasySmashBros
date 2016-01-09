@@ -7,9 +7,6 @@ var User = require('../models/user');
 // Configuration variables
 var config = require('../config.json');
 
-// JSON Web Token config
-var jwt = require('jsonwebtoken');
-
 // Rate limiter config
 var RateLimiter = require('limiter').RateLimiter;
 var loginLimiter = new RateLimiter(2, 'second');
@@ -77,12 +74,17 @@ router.post('/login', function (req, res, next) {
 	passport.authenticate('local', { session: false }, function (err, user, info) {
 		if (err) return next(err);
 		if (!user) return res.json({success: false, message: 'Incorrect credentials'});
-		jwt.sign({username: user.username}, config.jwtSecret, {
-			expiresIn: config.jwtExpire,
-			subject: user.email
-		}, function (token) {
-			// Success
-			res.json({success: true, token: token, 'Location': '/dashboard'});
+
+		request.get({
+			url: "http://jwt:5987/issuetoken",
+			qs: {username: user.username}
+		}, function (err, response, body) {
+			if (err) return res.status(500).send(err);
+			if (response.statusCode == 200) {
+				res.json({success: true, token: body, 'Location': '/dashboard'});
+			} else {
+				res.json({success: false});
+			}
 		});
 	})(req, res, next);
 });

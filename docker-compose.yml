@@ -12,10 +12,14 @@ client1:
     build: ./client
     ports:
         - "8080"
+    links:
+        - jwt:jwt
 client2:
     build: ./client
     ports:
         - "8080"
+    links:
+        - jwt:jwt
 
 gateway1:
     build: ./gateway
@@ -24,7 +28,6 @@ gateway1:
     links:
         - scoring:scoring
         - auth:auth
-        - main:main
 gateway2:
     build: ./gateway
     ports:
@@ -32,7 +35,6 @@ gateway2:
     links:
         - scoring:scoring
         - auth:auth
-        - main:main
 
 scoring:
     build: ./scoring
@@ -44,6 +46,7 @@ auth:
         - "3000"
     links:
         - database:database
+        - jwt:jwt
 jwt:
     build: ./jwt
     ports:

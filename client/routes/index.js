@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var jwt = require('jsonwebtoken');
-var config = require('../config.json');
+var request = require('request');
 var verifyJWT = function (token, callback) {
 	// Short-circuit when not in production
 	if (!process.env.DATABASEADDR) return callback(null, null);
@@ -10,9 +9,16 @@ var verifyJWT = function (token, callback) {
 	// No token specified
 	if (!token) return callback('no cookie');
 
-	jwt.verify(token, config.jwtSecret, function (err, decoded) {
-		if (err) return callback('invalid token');
-		callback(null, decoded);
+	request.get({
+		url: 'http://jwt:5987/verifytoken',
+		qs: {token: token}
+	}, function (err, response, body) {
+		if (err) return res.status(500).send(err);
+		if (response.statusCode == 200) {
+			callback(null, {username: body});
+		} else {
+			callback(body);
+		}
 	});
 };
 

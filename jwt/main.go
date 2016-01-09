@@ -18,7 +18,7 @@ var config Config
 
 func main() {
 	// Read JWT configs
-	configBlob, err := ioutil.ReadFile("config.json")
+	configBlob, err := ioutil.ReadFile("config.json") // Only works if in working directory
 	if err != nil {
 		panic("Cannot read config.json")
 	}
@@ -36,7 +36,7 @@ func main() {
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Fantasy Smash Bros Internal JWT API"))
+	fmt.Fprintf(w, "Fantasy Smash Bros Internal JWT API")
 	w.WriteHeader(200)
 }
 
@@ -59,7 +59,7 @@ func handleIssueToken(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte(tokenString))
+	fmt.Fprintf(w, tokenString)
 	w.WriteHeader(200)
 }
 
@@ -81,9 +81,14 @@ func handleVerifyToken(w http.ResponseWriter, r *http.Request) {
 	})
 
 	if err != nil {
-		fmt.Println(err)
-		http.Error(w, "Couldn't parse provided token", 400)
+		http.Error(w, fmt.Sprintf("Couldn't parse provided token: %s", err), 400)
 	} else if token.Valid {
+		username, ok := token.Claims["username"].(string) // Type assertion
+		if !ok {
+			http.Error(w, "Couldn't parse username", 500)
+			return
+		}
+		fmt.Fprintf(w, username)
 		w.WriteHeader(200)
 	} else {
 		http.Error(w, "Invalid token", 401)

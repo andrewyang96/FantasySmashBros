@@ -10,6 +10,7 @@ FROM ubuntu
 MAINTAINER Andrew Yang
 
 RUN apt-get -y install curl
+RUN apt-get -y install git
 
 # Install Go
 RUN \
@@ -22,13 +23,13 @@ ENV GOPATH /gopath
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 
 # Define working directory.
-WORKDIR /gopath
 ADD . /gopath/fantasy-smash-bros-jwt
+WORKDIR /gopath/fantasy-smash-bros-jwt
 
 # Install necessary Go packages
 RUN go get github.com/dgrijalva/jwt-go
 
 EXPOSE 5987
 
-# Define default command.
-CMD ["go", "run", "/gopath/fantasy-smash-bros-jwt/main.go"]
+# Build and run
+CMD ["go", "run", "main.go"]
