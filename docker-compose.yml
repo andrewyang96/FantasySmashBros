@@ -5,6 +5,7 @@ nginx:
         - client2:client2
         - gateway1:gateway1
         - gateway2:gateway2
+        - admin:admin
     ports:
         - "80:80"
 
@@ -28,6 +29,7 @@ gateway1:
     links:
         - scoring:scoring
         - auth:auth
+        - main:main
 gateway2:
     build: ./gateway
     ports:
@@ -35,15 +37,8 @@ gateway2:
     links:
         - scoring:scoring
         - auth:auth
+        - main:main
 
-jwt:
-    build: ./jwt
-    ports:
-        - "5987"
-scoring:
-    build: ./scoring
-    ports:
-        - "5000"
 auth:
     build: ./auth
     ports:
@@ -60,6 +55,21 @@ main:
         - jwt:jwt
         - scoring:scoring
 
+jwt:
+    build: ./jwt
+    ports:
+        - "5987"
+scoring:
+    build: ./scoring
+    ports:
+        - "5000"
+
+admin:
+    build: ./admin
+    ports:
+        - "80"
+    links:
+        - database:database
 database:
     image: mongo
     ports:

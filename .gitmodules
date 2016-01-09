@@ -1,0 +1,3 @@
+[submodule "admin/phpmongodb"]
+	path = admin/phpmongodb
+	url = https://github.com/andrewyang96/phpmongodb

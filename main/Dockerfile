@@ -16,7 +16,7 @@ RUN npm -g install npm@latest
 RUN npm install -g nodemon
 
 # Set PORT environment variable
-ENV PORT 8080
+ENV PORT 8000
 ENV DATABASEADDR database
 
 # Provides cached layer for node_modules
