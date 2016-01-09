@@ -7,7 +7,7 @@ var EventGame = require('../models/eventgame');
 
 /* GET all available events. */
 router.get('/', function (req, res) {
-	Event.find({}, 'event_name event_abbrev', function (err, events) {
+	Event.find({}, '-_id', function (err, events) {
 		if (err) return res.status(500).send({ok: false, message: err});
 		res.send({ok: true, events: events});
 	});
@@ -18,7 +18,7 @@ router.get('/:event_abbrev', function (req, res) {
 	Event.findOne({event_abbrev: req.params.event_abbrev}, '_id', function (err, event) {
 		if (err) return res.status(500).send({ok: false, message: err});
 		if (!event) return res.status(400).send({ok: false, message: 'Event not found'});
-		EventGame.find({event_doc: event._id}, 'game_name game_abbrev start_time available event_location event_url bracket_url smashers', function (err, eventgames) {
+		EventGame.find({event_doc: event._id}, '-_id', function (err, eventgames) {
 			if (err) return res.status(500).send({ok: false, message: err});
 			res.send({ok: true, eventgames: eventgames});
 		});
@@ -30,7 +30,7 @@ router.get('/:event_abbrev/:game_abbrev', function (req, res) {
 	Event.findOne({event_abbrev: req.params.event_abbrev}, '_id', function (err, event) {
 		if (err) return res.status(500).send({ok: false, message: err});
 		if (!event) return res.status(400).send({ok: false, message: 'Event not found'});
-		EventGame.findOne({event_doc: event._id, game_abbrev: req.params.game_abbrev}, 'game_name game_abbrev start_time available event_location event_url bracket_url smashers', function (err, eventgame) {
+		EventGame.findOne({event_doc: event._id, game_abbrev: req.params.game_abbrev}, '-_id', function (err, eventgame) {
 			if (err) return res.status(500).send({ok: false, message: err});
 			res.send({ok: true, eventgame: eventgame});
 		});

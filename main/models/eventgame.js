@@ -7,8 +7,6 @@ var eventGameSchema = new Schema({
 	game_abbrev: {type: String, required: true},
 	start_time: {type: Date, default: Date.now},
 	available: {type: Boolean, default: false},
-	event_location: {type: String},
-	event_url: {type: String},
 	bracket_url: {type: String},
 	smashers: {type: Array}
 });

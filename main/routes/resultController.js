@@ -8,7 +8,7 @@ var Result = require('../models/result');
 
 /* GET all available results. */
 router.get('/', function (req, res) {
-	Result.find({results_ready: true}, 'eventgame_doc', function (err, results) {
+	Result.find({results_ready: true}, '-_id -results_ready', function (err, results) {
 		if (err) return res.status(500).send({ok: false, message: err});
 		res.send({ok: true, results: results});
 	});
@@ -21,7 +21,7 @@ router.get('/:event_abbrev/:game_abbrev', function (req, res) {
 		if (!event) return res.status(400).send({ok: false, message: 'Event not found'});
 		EventGame.findOne({event_doc: event._id, game_abbrev: req.params.game_abbrev}, '_id', function (err, eventgame) {
 			if (err) return res.status(500).send({ok: false, message: err});
-			Result.findOne({results_ready: true, eventgame_doc: eventgame._id}, 'eventgame_doc results', function (err, results) {
+			Result.findOne({results_ready: true, eventgame_doc: eventgame._id}, '-_id', function (err, results) {
 				if (err) return res.status(500).send({ok: false, message: err});
 				res.send({ok: true, results: results});
 			});
