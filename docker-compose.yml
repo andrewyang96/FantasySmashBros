@@ -36,6 +36,10 @@ gateway2:
         - scoring:scoring
         - auth:auth
 
+jwt:
+    build: ./jwt
+    ports:
+        - "5987"
 scoring:
     build: ./scoring
     ports:
@@ -47,10 +51,14 @@ auth:
     links:
         - database:database
         - jwt:jwt
-jwt:
-    build: ./jwt
+main:
+    build: ./main
     ports:
-        - "5987"
+        - "8000"
+    links:
+        - database:database
+        - jwt:jwt
+        - scoring:scoring
 
 database:
     image: mongo
